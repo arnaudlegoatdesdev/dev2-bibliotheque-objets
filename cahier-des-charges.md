@@ -1,17 +1,26 @@
-# Cahier des charges
+# Cahier des charges - Bibliothèque d'objets
 
 ## Informations sur le document
 
-### Titre
-
-### Auteurs
-
+### Titre : 
+    Cahier des charges - Bibliothèque d'objets
+### Auteurs du document :
+    Groupe 2TL1-6
+### Validation par le client
+    
 ### Historique des versions
-
-### Date de validation par le client
-
-## Conventions d'identification
-
+| Version | Date | Modification     |
+|:--------|:-----|:-----------------|
+| v0.1    |      | Version Initiale |
+## Convention d'identification
+| Element | Format   | Exemple |
+| :------ |:---------|:--------|
+| Règle métier | RM-xx    | RM-01   |
+| Donnée | D-xx     | D-02    |
+| Fonctionnalité | F-xx     | F-03    |
+| Exigence fonctionnelle | EF-xx.y  | EF-04.1 |
+| Exigence non fonctionnelle | ENF-xx   | ENF-05  |
+| Question ouverte | Q-xx     | Q-06    |
 ## 1. Contexte
 
 ### 1.1. Présentation du client
