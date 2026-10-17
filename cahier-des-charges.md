@@ -41,6 +41,14 @@
 
 ### 1.3. Objectifs du projet
 
+- Centraliser le catalogue, les membres, les emprunts et les réservation dans une seule application afin que les bénévoles n'aient plus à utiliser Airtable et le tableur externe de manière fastidieuse.
+
+- Permettre aux bénévoles de connaitre la disponibilité et l'état d'un objet avant de le prêter, afin d'éviter de proposer un objet déjà emprunté en réparation ou réservé.
+
+- Faciliter le contrôle des objets au retour, notamment grâce à la liste des pièces de certains kits, pour repérer les dégats et les éléments manquants avant l'emprunt suivant.
+
+- Permettre de retrouver l'historique des emprunts et des incidents de chaque objet afin d'identifier les problèmes récurrents ou les incidents associés à un membre.
+
 ## 2. Description générale
 
 ### 2.1. Vue d'ensemble du produit et de son environnement
