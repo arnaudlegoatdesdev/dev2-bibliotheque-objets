@@ -33,6 +33,12 @@
 
 ### 1.2. Présentation du projet
 
+- Actuellement, La Remise utilise Airtable en version gratuite pour gérer son catalogue, mais cet outil commence à saturer. Les emprunts et les réservations sont enregistrés dans un tableur séparé d'Airtable ce qui rend le suivi peu fiable.
+
+- Cette organisation ne permet pas de connaitre facilement et de manière fiable la disponibilité et l'état des objets. Certain dégats sont découverts seulement lors de l'emprunt suivant. Le suivi de l'entretien et de l'historique des objets reste insuffisant, nottament pour les kits composés de plusieurs pièces.
+
+- Le projet consiste à remplacer ces outils par une application unique regroupant le catalogue, les membres, les emprunts et les réservations. Elle doit faciliter le travail quotidien des bénévoles et leur faire gagner du temps ainsi qu'améliorer le suivi des objets.
+
 ### 1.3. Objectifs du projet
 
 ## 2. Description générale
