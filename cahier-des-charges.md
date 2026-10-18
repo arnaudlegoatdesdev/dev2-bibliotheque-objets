@@ -95,24 +95,12 @@
 ## 6. Livrables et planning
 
 ### 6.1. Livrables
-  - **L-01** L'Application installée et mise en ligne
-  - **L-02** Une guide d'utilisation pour la responsable et les bénévoles
-  - **L-03**
-  - **L-04** Le code source et la documentation technique
+  
 
 ### 6.2. Échéances
-|SEMAINE| ECHEANCE|
-|:-------|:----------|
-|S2| Validation du cahiers de charge |
-|   | conception|
-|   | livraison du MVP (F-01 - F-08) |
-|   | second increment : F-09 - F-12 |
-|   | version finale , guide d'utilisation recette finale |
 
 ### 6.3. Retours vers le client
-  - Demo à la responsable et aux benevoles à chaque livraison et point technique
-  - Question ouverte avec le client toutes les semaines
-
+ 
 ## 7. Validation du projet
 
 ## 8. Maintenance
