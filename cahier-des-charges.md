@@ -81,7 +81,35 @@
 
 ### 2.3. Périmètre
 
+- Le projet comprend la gestion du catalogue et des exemplaires physiques, des membres et de leurs abonnements, des réservations, des emprunts et des retours. Il inclut le suivi de l'état des objets, des pièces des kits, des cautions et des historiques d'emprunts et d'incidents.
+
+- Le catalogue existant dans Airtable devra être repris au démarrage. Les bénévoles pourront modifier les fiches objets sans validation préalable, avec une trace permettant de retrouver qui a effectué les modifications. Les membres pourront consulter le catalogue pendant les permanences.
+
+- L’application ne remplacera pas les permanences physiques, les échanges avec les membres ou les conseils d’utilisation des objets. Le catalogue papier affiché au local sera conservé.
+
+- La mise en ligne, l’accès des membres à distance, la réservation autonome, les notifications par e-mail, la création de nouvelles formules d’abonnement et l’intégration du planning des bénévoles restent à valider avec la cliente. Ces points seront repris dans les questions ouvertes.
+
 ### 2.4. Règles métier
+
+- **RM-01** : L’abonnement est annuel. La formule pleine coûte 30 € et permet d’emprunter trois objets simultanément. Le tarif réduit coûte 10 € et permet d’en emprunter deux simultanément.
+
+- **RM-02** : Un emprunt dure une semaine. Il peut être prolongé une seule fois, pour une semaine supplémentaire, si l’objet n’est pas réservé par un autre membre.
+
+- **RM-03** : Les réservations sont gratuites et concernent une permanence précise. Un objet déjà emprunté peut être réservé pour la prochaine permanence.
+
+- **RM-04** : Si le membre ne vient pas chercher l’objet réservé, la réservation expire à la fin de la permanence concernée, sans frais.
+
+- **RM-05** : Un membre ayant un objet en retard ne peut plus effectuer de nouvel emprunt tant que l’objet n’est pas rendu. Aucune amende n’est appliquée pour les retards.
+
+- **RM-06** : Au troisième retard dans l’année, un bénévole appelle le membre pour lui rappeler la charte.
+
+- **RM-07** : Au retour, le bénévole vérifie l’état de l’objet et les pièces attendues pour les kits. L’état est indiqué parmi les valeurs suivantes : bon, usure normale, endommagé ou incomplet.
+
+- **RM-08** : Un objet endommagé ou incomplet est mis de côté et ne peut pas être emprunté en attendant sa vérification par un bénévole bricoleur.
+
+- **RM-09** : La caution dépend de la catégorie de valeur de l’objet : aucune caution pour A, 20 € pour B, 50 € pour C et 100 € pour D.
+
+- **RM-10** : La caution est payée en liquide à l’emprunt et restituée en liquide au retour. Si l’objet est abîmé ou si des pièces manquent, le bénévole peut en retenir une partie en indiquant une justification.
 
 ### 2.5. Données
 
