@@ -525,7 +525,7 @@ Le projet est réalisé dans un cadre scolaire, sans coût pour la bibliothèque
 |          | conception                                                            |
 |          | livraison du MVP (F-01 - F-08). reprises de la liste des membres et objets (L-03) |
 |          | second increment : F-09 - F-12                                        |
-|          | version finale , guide d'utilisation recette finale                   |
+|          | version finale , guide d'utilisation application finale               |
 
 ### 6.3. Retours vers le client
 - Demo à la responsable et aux benevoles à chaque livraison et point technique
