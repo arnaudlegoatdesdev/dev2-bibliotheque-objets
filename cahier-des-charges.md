@@ -105,10 +105,12 @@ Pour le système de gestion d'une bibliothèque d'objets, les exigences fonction
 | **F-06** | Gérer les abonnements des membres                              | Bénévole          | Indispensable | 
 | **F-07** | Gérer les réservations d'objets                                | Bénévole          | Indispensable | 
 | **F-08** | Gérer les emprunts et les retours                              | Bénévole          | Indispensable | 
-| **F-09** | Envoyer les notifications relatives aux abonnements par e-mail | Bénévole, Système | Souhaitable   | 
-| **F-10** | Envoyer les confirmations de réservation par e-mail            | Bénévole, Système | Souhaitable   | 
-| **F-11** | Envoyer les reçus d'emprunt par e-mail                         | Bénévole, Système | Souhaitable   | 
-| **F-12** | Envoyer des rappels par e-mail de retour des objets empruntés  | Bénévole, Système | Souhaitable   | 
+| **F-09** | Gérer les sauvegardes et la restauration des données           | Administrateur, Système | Indispensable | 
+| **F-10** | Initialiser le système à partir des données existantes         | Administrateur, Système | Indispensable |
+| **F-11** | Envoyer les notifications relatives aux abonnements par e-mail | Bénévole, Système | Souhaitable   | 
+| **F-12** | Envoyer les confirmations de réservation par e-mail            | Bénévole, Système | Souhaitable   | 
+| **F-13** | Envoyer les reçus d'emprunt par e-mail                         | Bénévole, Système | Souhaitable   | 
+| **F-14** | Envoyer des rappels par e-mail de retour des objets empruntés  | Bénévole, Système | Souhaitable   | 
 
 #### Vue d'ensemble du MVP
 
@@ -124,9 +126,11 @@ Il permettra également d'enregistrer les réservations, les emprunts et les ret
 
 Les fonctionnalités de notification automatique et d'envoi de reçus par e-mail pourront être intégrées dans une version ultérieure, selon le périmètre retenu et la validation de Madame Pereira.
 
-Les fonctionnalités **F-01** à **F-08** sont détaillées ci-dessous sous forme d'exigences fonctionnelles. Les fonctionnalités **F-09** à **F-12** seront précisées ultérieurement, notamment en ce qui concerne les délais d'envoi, les événements déclencheurs et les canaux de notification.
+Les fonctionnalités **F-01** à **F-10** sont détaillées ci-dessous sous forme d'exigences fonctionnelles. Les fonctionnalités **F-11** à **F-14** seront précisées ultérieurement, notamment en ce qui concerne les délais d'envoi, les événements déclencheurs et les canaux de notification.
 
-### Détail des exigences fonctionnelles (MVP)
+Le MVP intégrera également les fonctionnalités de sauvegarde et de restauration des données ainsi que l’importation initiale des données existantes de la bibliothèque. Cette importation permettra de récupérer les données des membres et du catalogue actuellement stockées dans Airtable, ainsi que l’historique des emprunts conservé dans un tableur, après vérification de leur cohérence.
+
+#### Détail des exigences fonctionnelles (MVP)
 
 #### F-01 : Gérer les membres
 
@@ -284,66 +288,103 @@ Le bénévole peut enregistrer les emprunts et les retours des objets physiques.
 * **EF-08.17** : Le système conserve, pour chaque emprunt concerné, le montant de la caution perçu, le montant restitué, le montant éventuellement retenu et la justification de toute retenue.
 
 > **Données impliquées** : D-01 (données du membre), D-03 (données des objets), D-06 (données des abonnements), D-07 (données des réservations), D-08 (données des emprunts).
-#### Minimum Viable Product
 
-### Fonctionnalités secondaires (Post-MVP)
+#### F-09 : Gérer les sauvegardes et la restauration des données
 
-#### F-09 : Notifier les membres à l'approche de l'expiration de leur abonnement
+L’administrateur peut déclencher une sauvegarde des données de la bibliothèque et restaurer les données à partir d’une sauvegarde existante. Le système permet de protéger les données contre les pertes accidentelles et de récupérer un état cohérent de la bibliothèque en cas d’incident.
+
+- **EF-09.1** : Le système permet à l’administrateur de déclencher manuellement une sauvegarde des données de la bibliothèque.
+- **EF-09.2** : Le système peut effectuer automatiquement des sauvegardes selon une fréquence définie par l’administrateur.
+- **EF-09.3** : Chaque sauvegarde doit contenir les données nécessaires à la reprise du système, notamment les membres, les objets, les abonnements, les réservations, les emprunts et les informations relatives aux cautions.
+- **EF-09.4** : Le système conserve les informations permettant d’identifier chaque sauvegarde, notamment sa date de création et son statut.
+- **EF-09.5** : L’administrateur peut consulter la liste des sauvegardes disponibles.
+- **EF-09.6** : L’administrateur peut restaurer les données à partir d’une sauvegarde sélectionnée.
+- **EF-09.7** : Avant une restauration susceptible de remplacer les données existantes, le système demande une confirmation explicite à l’administrateur.
+- **EF-09.8** : Le système vérifie qu’une sauvegarde est exploitable avant de lancer sa restauration.
+- **EF-09.9** : Le système signale le résultat d’une sauvegarde ou d’une restauration et indique les éventuelles erreurs rencontrées.
+- **EF-09.10** : Le système conserve une trace des opérations de sauvegarde et de restauration, notamment leur date, leur résultat et l’utilisateur qui les a déclenchées.
+
+> **Données impliquées** : D-01 (données des membres), D-03 (données des objets), D-04 (données des types d’objets), D-05 (données des formules d’abonnement), D-06 (données des abonnements), D-07 (données des réservations), D-08 (données des emprunts), D-09 (données des notifications), D-10 (données des reçus).
+
+#### F-10 : Initialiser le système à partir des données existantes
+
+L’administrateur peut initialiser le système en important les données historiques de la bibliothèque actuellement stockées dans Airtable et dans un tableur. Le système permet de contrôler, de valider et d’intégrer ces données afin de démarrer l’utilisation de la nouvelle application sans devoir tout encoder manuellement.
+
+- **EF-10.1** : Le système permet à l’administrateur d’importer les données des membres depuis Airtable.
+- **EF-10.2** : Le système permet à l’administrateur d’importer les données du catalogue des objets depuis Airtable.
+- **EF-10.3** : Le système permet à l’administrateur d’importer les données historiques des emprunts depuis un tableur compatible avec le format retenu pour le projet.
+- **EF-10.4** : Le système permet d’associer les colonnes des fichiers ou des sources importées aux champs correspondants du nouveau système, selon un mapping défini.
+- **EF-10.5** : Le système vérifie la cohérence des données importées, notamment la présence des champs obligatoires, la validité des formats et la cohérence des références entre membres, objets et emprunts.
+- **EF-10.6** : Le système détecte les doublons potentiels et les données qui ne peuvent pas être importées correctement.
+- **EF-10.7** : Avant de lancer l’importation définitive, le système présente un récapitulatif des données à importer et des éventuelles erreurs détectées.
+- **EF-10.8** : L’administrateur peut confirmer ou annuler l’importation après avoir consulté le récapitulatif.
+- **EF-10.9** : Le système conserve les relations entre les membres, les exemplaires physiques et les emprunts lors de l’importation des données historiques.
+- **EF-10.10** : Le système attribue des identifiants internes uniques aux données importées lorsque cela est nécessaire, tout en conservant les références historiques utiles à la traçabilité.
+- **EF-10.11** : Le système génère un rapport d’importation indiquant le nombre d’enregistrements importés, ignorés ou rejetés, ainsi que les erreurs détectées.
+- **EF-10.12** : Le système permet à l’administrateur de consulter le rapport d’une importation terminée afin de faciliter la correction des données rejetées.
+- **EF-10.13** : Le système empêche qu’une même donnée soit importée plusieurs fois sans contrôle, notamment lors d’une nouvelle tentative d’importation.
+- **EF-10.14** : Avant l’importation initiale, le système permet de sauvegarder les données déjà présentes afin de pouvoir les récupérer en cas de problème.
+
+> **Données impliquées** : D-01 (données des membres), D-03 (données des objets), D-04 (données des types d’objets), D-06 (données des abonnements), D-07 (données des réservations), D-08 (données des emprunts).
+
+#### Fonctionnalités secondaires (Post-MVP)
+
+#### F-11 : Notifier les membres à l'approche de l'expiration de leur abonnement
 
 Le système informe automatiquement les membres lorsque leur abonnement approche de sa date d'expiration, afin de leur permettre de prendre les dispositions nécessaires pour le renouveler.
 
-* **EF-09.1** : Le système identifie périodiquement les abonnements dont la date d'expiration approche.
-* **EF-09.2** : Le système envoie une notification au membre concerné avant l'expiration de son abonnement.
+* **EF-11.1** : Le système identifie périodiquement les abonnements dont la date d'expiration approche.
+* **EF-11.2** : Le système envoie une notification au membre concerné avant l'expiration de son abonnement.
   * *Critère d'acceptation* : Si l’e-mail du membre n’est pas enregistré dans le système, alors aucun rnotification ne lui sera envoyé.
-* **EF-09.3** : La notification contient les informations essentielles de l'abonnement, notamment sa date d'expiration.
-* **EF-09.4** : Le système permet de définir le délai précédant l'expiration auquel la notification doit être envoyée.
-* **EF-09.5** : Le système évite d'envoyer plusieurs notifications identiques pour une même échéance, selon la fréquence définie.
-* **EF-09.6** : Le système ne déclenche pas de rappel d'expiration pour un abonnement qui a été renouvelé ou dont le statut ne justifie plus l'envoi du rappel.
+* **EF-11.3** : La notification contient les informations essentielles de l'abonnement, notamment sa date d'expiration.
+* **EF-11.4** : Le système permet de définir le délai précédant l'expiration auquel la notification doit être envoyée.
+* **EF-11.5** : Le système évite d'envoyer plusieurs notifications identiques pour une même échéance, selon la fréquence définie.
+* **EF-11.6** : Le système ne déclenche pas de rappel d'expiration pour un abonnement qui a été renouvelé ou dont le statut ne justifie plus l'envoi du rappel.
 
 > **Données impliquées** : D-01 (données du membre), D-06 (données des abonnements), D-09 (données des notifications).
 
-#### F-10 : Notifier les membres après une réservation
+#### F-12 : Notifier les membres après une réservation
 
 Le système informe automatiquement les membres de l'enregistrement dans le système de leurs réservations et leur communique les informations utiles pour le suivi de celles-ci.
 
-* **EF-10.1** : Le système envoie une notification au membre après la création d'une réservation.
+* **EF-12.1** : Le système envoie une notification au membre après la création d'une réservation.
   * *Critère d'acceptation* : Si l’e-mail du membre qui fait la reservation n’est pas enregistré dans le système, alors aucune notification ne lui sera envoyé.
-* **EF-10.2** : La notification contient le nom de l'objet réservé, la date de réservation, la date fixée pour l’emprunt et le statut de la réservation.
-* **EF-10.3** : Lorsque cela est applicable, la notification précise la période de disponibilité prévue de l'objet ou les modalités de retrait.
-* **EF-10.4** : Le système informe le membre lorsque sa réservation est annulée ou lorsque son statut est modifié de manière significative.
-* **EF-10.5** : Le système associe chaque notification à la réservation correspondante.
+* **EF-12.2** : La notification contient le nom de l'objet réservé, la date de réservation, la date fixée pour l’emprunt et le statut de la réservation.
+* **EF-12.3** : Lorsque cela est applicable, la notification précise la période de disponibilité prévue de l'objet ou les modalités de retrait.
+* **EF-12.4** : Le système informe le membre lorsque sa réservation est annulée ou lorsque son statut est modifié de manière significative.
+* **EF-12.5** : Le système associe chaque notification à la réservation correspondante.
 
 > **Données impliquées** : D-01 (données du membre), D-03 (données des objets), D-07 (données des réservations), D-09 (données des notifications).
 
-#### F-11 : Envoyer les reçus d'emprunt par e-mail
+#### F-13 : Envoyer les reçus d'emprunt par e-mail
 
 Le système génère un reçu après l'enregistrement d'un emprunt et l'envoie par courrier électronique au membre concerné.
 
-* **EF-11.1** : Le système génère un reçu après l'enregistrement réussi d'un emprunt.
-* **EF-11.2** : Le reçu contient les informations essentielles de l'opération, notamment l'identité du membre, l'objet emprunté, la date d'emprunt, la date de retour prévue et la caution versée.
-* **EF-11.3** : Le système envoie le reçu à l'adresse e-mail associée au membre.
+* **EF-13.1** : Le système génère un reçu après l'enregistrement réussi d'un emprunt.
+* **EF-13.2** : Le reçu contient les informations essentielles de l'opération, notamment l'identité du membre, l'objet emprunté, la date d'emprunt, la date de retour prévue et la caution versée.
+* **EF-13.3** : Le système envoie le reçu à l'adresse e-mail associée au membre.
   * *Critère d'acceptation* : Si l’e-mail du membre qui fait l’emprunt n’est pas enregistré dans le système, alors aucun reçu ne lui sera envoyé.
-* **EF-11.4** : Le système ne génère pas de reçu pour un emprunt qui n'a pas été enregistré avec succès.
-* **EF-11.5** : Le système conserve les informations nécessaires pour retrouver le reçu associé à un emprunt.
-* **EF-11.6** : En cas d'échec de l'envoi, le système enregistre l'incident afin de permettre une nouvelle tentative ou une intervention du bénévole.
+* **EF-13.4** : Le système ne génère pas de reçu pour un emprunt qui n'a pas été enregistré avec succès.
+* **EF-13.5** : Le système conserve les informations nécessaires pour retrouver le reçu associé à un emprunt.
+* **EF-13.6** : En cas d'échec de l'envoi, le système enregistre l'incident afin de permettre une nouvelle tentative ou une intervention du bénévole.
 
 > **Données impliquées** : D-01 (données du membre), D-03 (données des objets), D-08 (données des emprunts), D-10 (données des reçus).
 
-#### F-12 : Notifier les membres à l'approche de la date de retour des objets empruntés
+#### F-14 : Notifier les membres à l'approche de la date de retour des objets empruntés
 
 Le système envoie automatiquement des rappels aux membres lorsque la date prévue de retour d'un objet approche, afin de limiter les retards de restitution.
 
-* **EF-12.1** : Le système identifie périodiquement les emprunts dont la date de retour prévue approche.
-* **EF-12.2** : Le système (le bénévole peut également le faire) envoie un rappel au membre concerné avant la date de retour prévue.
+* **EF-14.1** : Le système identifie périodiquement les emprunts dont la date de retour prévue approche.
+* **EF-14.2** : Le système (le bénévole peut également le faire) envoie un rappel au membre concerné avant la date de retour prévue.
   * *Critère d'acceptation* : Si l’e-mail du membre qui fait l’emprunt n’est pas enregistré dans le système, alors aucune notification ne lui sera envoyé.
-* **EF-12.3** : Le rappel indique le nom de l'objet emprunté et la date prévue de retour.
-* **EF-12.4** : Le système permet de configurer le délai précédant la date de retour auquel le rappel doit être envoyé.
-* **EF-12.5** : Le système ne déclenche pas de rappel de retour pour un emprunt dont le retour a déjà été enregistré.
-* **EF-12.6** : Le système peut envoyer un rappel supplémentaire lorsqu'un emprunt devient en retard, si cette règle est retenue par la bibliothèque.
-* **EF-12.7** : Le système enregistre les notifications envoyées afin d'éviter les doublons et de permettre le suivi des rappels.
+* **EF-14.3** : Le rappel indique le nom de l'objet emprunté et la date prévue de retour.
+* **EF-14.4** : Le système permet de configurer le délai précédant la date de retour auquel le rappel doit être envoyé.
+* **EF-14.5** : Le système ne déclenche pas de rappel de retour pour un emprunt dont le retour a déjà été enregistré.
+* **EF-14.6** : Le système peut envoyer un rappel supplémentaire lorsqu'un emprunt devient en retard, si cette règle est retenue par la bibliothèque.
+* **EF-14.7** : Le système enregistre les notifications envoyées afin d'éviter les doublons et de permettre le suivi des rappels.
 
 > **Données impliquées** : D-01 (données du membre), D-03 (données des objets), D-08 (données des emprunts), D-09 (données des notifications).
-#### Fiches des fonctionnalités
+
 
 ### 3.2. Exigences non fonctionnelles
 - **ENF-01 :** Une documentation utilisateur est fournie pour permettre une utilisation autonome de l'application par les bénévoles.
