@@ -522,7 +522,7 @@ Le projet est réalisé dans un cadre scolaire, sans coût pour la bibliothèque
 |:---------|:----------------------------------------------------------------------|
 | S2       | Validation du cahier des charges                                      |
 |          | conception                                                            |
-|          | livraison du MVP (F-01 - F-08). reprises des membres et objets (L-03) |
+|          | livraison du MVP (F-01 - F-08). reprises de la liste des membres et objets (L-03) |
 |          | second increment : F-09 - F-12                                        |
 |          | version finale , guide d'utilisation recette finale                   |
 
