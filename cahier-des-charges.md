@@ -13,14 +13,15 @@
 |:--------|:-----|:-----------------|
 | v0.1    |      | Version Initiale |
 ## Convention d'identification
-| Element                    | Format   | Exemple |
-|:---------------------------|:---------|:--------|
-| Règle métier               | RM-xx    | RM-01   |
-| Donnée                     | D-xx     | D-02    |
-| Fonctionnalité             | F-xx     | F-03    |
-| Exigence fonctionnelle     | EF-xx.y  | EF-04.1 |
-| Exigence non fonctionnelle | ENF-xx   | ENF-05  |
-| Question ouverte           | Q-xx     | Q-06    |
+| Element                    | Format  | Exemple |
+|:---------------------------|:--------|:--------|
+| Règle métier               | RM-xx   | RM-01   |
+| Donnée                     | D-xx    | D-02    |
+| Fonctionnalité             | F-xx    | F-03    |
+| Exigence fonctionnelle     | EF-xx.y | EF-04.1 |
+| Exigence non fonctionnelle | ENF-xx  | ENF-05  |
+| Livrable                   | L-xx    | L-06    |
+| Question ouverte           | Q-xx    | Q-07    |
 
 ### Table des matières
 1. Contexte
@@ -339,8 +340,7 @@ Le système envoie automatiquement des rappels aux membres lorsque la date prév
 - **ENF-02 :** Une documentation développeur est fournie pour permettre la maintenance de l'application par les bénévoles.
 - **ENF-03 :** Le code source est fourni de façon Open Source. 
 - **ENF-04 :** L'application possède une interface graphique. (GUI)
-- **ENF-05 :** L'application est responsive, elle fonctionne sur ordinateur portable et sur téléphone.
-- **ENF-06 :** L'application est utilisable par six personnes simultanément.
+- **ENF-05 :** L'application est utilisable par six personnes simultanément.
 ## 4. Contraintes
 - Les données sont traitées conformément au RGPD.
 - Le développement de l'application est effectué en python en accord avec le cours de développement informatique 2.
