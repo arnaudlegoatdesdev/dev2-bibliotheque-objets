@@ -31,7 +31,9 @@
 5. Budget
 6. Livrables et Planning
 7. Validation du projet
-8. Questions ouvertes
+8. Maintenance
+9. Questions ouvertes
+10. Glossaire
 
 ## 1. Contexte
 
@@ -65,7 +67,7 @@
 
 ### 2.1. Vue d'ensemble du produit et de son environnement
 
-- L'application servira d'outil de gestion aux bénévoles pendants les permanences. Elle remplacera Airtable pour le catalogue et le tableur utilisé pour les emprunts, les retours et les réservations.
+- L'application servira d'outil de gestion aux bénévoles pendant les permanences. Elle remplacera Airtable pour le catalogue et le tableur utilisé pour les emprunts, les retours et les réservations.
 
 - Elle sera principalement utilisée sur l'ordinateur portable du local, qui dispose d'une connexion internet fonctionnant généralement bien.
 
@@ -75,7 +77,7 @@
 
 - **Bénévoles de permanence** : les six bénévoles sont les principaux utilisateurs de l'application. Ils gèrent le catalogue, les membres, les réservations, les emprunts et les retours, ainsi que l'état des objets et les cautions. Ils disposent des mêmes accès. N'ayant pas de connaissances techniques particulières, ils ont besoin d'un outil simple à utiliser pendant les permanences.
 
-- **Membres** : la bibliothèque compte environ 120 membres disposant d'un abonnement annuel. La cliente souhaite qu'ils puissent consulter le catalogue pendant les permanences. Les opérations de gestion restent effectuées par les bénévoles. La consultation à distance et la reservation autonome par les membres est évoquée comme une possibilitée, mais la cliente n'est pas encore décidé.
+- **Membres** : la bibliothèque compte environ 120 membres disposant d'un abonnement annuel. La cliente souhaite qu'ils puissent consulter le catalogue pendant les permanences. Les opérations de gestion restent effectuées par les bénévoles. La consultation à distance et la reservation autonome par les membres est évoquée comme une possibilité, mais la cliente n'est pas encore décidé.
 
 ### 2.3. Périmètre
 
@@ -97,7 +99,7 @@
 
 - **RM-04** : Si le membre ne vient pas chercher l’objet réservé, la réservation expire à la fin de la permanence concernée, sans frais.
 
-- **RM-05** : Un membre ayant un objet en retard ne peut plus effectuer de nouvel emprunt tant que l’objet n’est pas rendu. Aucune amende n’est appliquée pour les retards.
+- **RM-05** : Un membre ayant un objet en retard ne peut plus effectuer de nouveaux emprunts tant que l’objet n’est pas rendu. Aucune amende n’est appliquée pour les retards.
 
 - **RM-06** : Au troisième retard dans l’année, un bénévole appelle le membre pour lui rappeler la charte.
 
@@ -111,80 +113,6 @@
 
 ### 2.5. Données
 
-- **D-01** Membre : identifiant unique, nom, prénom, adresse, téléphone et e-mail. Les abonnements (D-06), réservations (D-07) et emprunts (D-08) sont associés au membre concerné.
-  - Volume : environ 120 membres.
-  - Origine : saisie par les bénévoles. La source des informations existantes à reprendre reste à confirmer.
-  - Conservation : à définir avec la cliente.
-  - Opérations : créer, consulter et modifier une fiche membre par un bénévole (F-01).
-
-- **D-02** Compte utilisateur : identifiant unique, identité du bénévole et statut du compte. L’utilisation d’une adresse e-mail et d’un mot de passe, ainsi que la présence d’un rôle administrateur, prévues dans F-02, restent à valider.
-  - Volume : six bénévoles concernés ; le nombre de comptes reste à préciser.
-  - Origine : comptes créés pour l’utilisation de l’application.
-  - Conservation : à définir avec la cliente.
-  - Opérations prévues : créer, consulter, modifier et désactiver un compte (F-02). La personne responsable de ces opérations reste à confirmer.
-
-- **D-03** Objet : identifiant unique par exemplaire physique, nom, catégorie (D-04), photo, état, disponibilité, catégorie de valeur et liste des pièces attendues pour les kits. Les modifications des fiches sont tracées avec leur auteur, leur date et les informations modifiées.
-  - Compléments prévus dans F-03 : description, marque et modèle, à valider avec la cliente.
-  - Volume : environ 350 objets.
-  - Origine : reprise du catalogue Airtable au démarrage (F-10), puis saisie par les bénévoles.
-  - Conservation : la durée de conservation des fiches après le retrait d’un objet reste à définir.
-  - Opérations : ajouter, consulter, modifier et retirer un objet du catalogue par un bénévole (F-03). Sa disponibilité évolue également avec les réservations, les emprunts et les retours (F-07, F-08).
-
-- **D-04** Type ou catégorie d’objet : identifiant unique, nom et description facultative de la catégorie servant à classer les objets, par exemple bricolage, jardin, cuisine ou camping. Ces catégories sont distinctes des catégories de valeur A à D.
-  - Volume : 12 catégories actuellement.
-  - Origine : reprise des catégories du catalogue Airtable (F-10), puis gestion par les bénévoles.
-  - Conservation : à définir avec la cliente.
-  - Opérations : créer, consulter et modifier les catégories, et y associer des objets, par un bénévole (F-04).
-
-- **D-05** Formule d’abonnement : identifiant unique, nom de la formule, durée, prix et nombre maximal d’objets empruntables simultanément, conformément à RM-01.
-  - Volume : deux formules actuellement.
-  - Origine : formules existantes de La Remise.
-  - Conservation : à définir avec la cliente.
-  - Opérations : consulter les formules (F-05). La possibilité d’en créer de nouvelles, de les modifier ou de les désactiver reste à valider.
-
-- **D-06** Abonnement d’un membre : membre concerné (D-01), formule choisie (D-05), dates de début et de fin de validité et statut de l’abonnement.
-  - Volume : dépend des abonnements souscrits par les quelque 120 membres.
-  - Origine : enregistrement par les bénévoles ; la reprise des abonnements existants reste à préciser.
-  - Conservation : à définir avec la cliente.
-  - Opérations : enregistrer, consulter et mettre à jour un abonnement par un bénévole (F-06). Les modalités de suspension restent à préciser.
-
-- **D-07** Réservation : membre concerné (D-01), exemplaire réservé (D-03), date d’enregistrement, permanence prévue pour le retrait et statut de la réservation. La permanence concernée doit être identifiable par sa date et ses horaires.
-  - Volume : nombre de réservations non précisé par la cliente.
-  - Origine : actuellement dans le tableur séparé ; les nouvelles réservations seront enregistrées par les bénévoles. Les modalités de reprise des réservations existantes restent à préciser.
-  - Conservation : à définir avec la cliente.
-  - Opérations : enregistrer, consulter, modifier et annuler une réservation par un bénévole (F-07). Une réservation non retirée expire à la fin de la permanence concernée (RM-04).
-
-- **D-08** Emprunt et retour : membre concerné (D-01), exemplaire emprunté (D-03), date de sortie, date de retour prévue, date de retour réelle, prolongation éventuelle, état au retour et incidents constatés. Pour les objets concernés : caution perçue, montant restitué, montant retenu et justification.
-  - Volume : nombre d’emprunts non précisé par la cliente.
-  - Origine : reprise des emprunts du tableur existant (F-10), puis enregistrement par les bénévoles.
-  - Conservation : historique des emprunts conservé au moins une année complète. La conservation des incidents tant que l’objet reste dans la collection a été acceptée dans son principe, mais ses modalités restent à préciser.
-  - Opérations : enregistrer un emprunt, prolonger un emprunt, enregistrer un retour et consulter l’historique par un bénévole (F-08).
-
-- **D-09** Notification : sous réserve de validation : membre destinataire (D-01), abonnement, réservation ou emprunt concerné (D-06, D-07 ou D-08), type de notification, contenu du message, date et résultat de l’envoi.
-  - Volume et conservation : à préciser si les notifications sont retenues.
-  - Origine et opérations : notifications produites et envoyées par le système pour les fonctionnalités F-11, F-12 et F-14. Un rappel de retour peut également être déclenché par un bénévole dans F-14.
-
-- **D-10** Reçu d’emprunt : modalités à valider : emprunt concerné (D-08), identité du membre, objet emprunté, date d’emprunt, date de retour prévue, pièces incluses et montant de la caution. La date et le résultat de l’envoi sont également enregistrés si l’envoi par e-mail est retenu.
-  - Volume : dépend du nombre d’emprunts donnant lieu à un reçu.
-  - Origine et opérations : reçu produit à partir des informations de l’emprunt (F-13). Son envoi par e-mail reste à valider.
-  - Conservation : à définir avec la cliente.
-
-- **D-11** Sauvegarde : informations nécessaires à la reprise du système, date de création et statut de la sauvegarde. Les opérations de sauvegarde et de restauration sont tracées avec leur date, leur résultat et l’utilisateur à l’origine de l’opération, ou le système pour une opération automatique.
-  - Volume : dépend de la fréquence des sauvegardes, qui reste à définir.
-  - Origine : sauvegardes produites par le système, automatiquement ou à la demande d’un utilisateur autorisé (F-09).
-  - Conservation : à définir.
-  - Opérations prévues : créer une sauvegarde, consulter les sauvegardes disponibles et restaurer les données (F-09). La personne autorisée à réaliser ces opérations reste à confirmer.
-
-- **D-12** Rapport d’importation : nombre d’enregistrements importés, ignorés ou rejetés, ainsi que les erreurs détectées lors de la reprise des données existantes.
-  - Volume : dépend du nombre d’importations réalisées.
-  - Origine : rapport généré par le système lors d’une importation (F-10).
-  - Conservation : à définir.
-  - Opérations prévues : produire le rapport et permettre sa consultation par la personne chargée de l’importation (F-10). Cette personne reste à confirmer.
-
-Les champs obligatoires, les formats attendus des coordonnées restent à préciser avec la cliente.
-
-Les coordonnées des membres, les comptes et les historiques associés à une personne sont des données personnelles. Les droits d’accès précis restent à valider. Les sauvegardes contenant ces informations doivent bénéficier des mêmes restrictions d’accès.
-
 ## 3. Exigences
 
 ### 3.1. Exigences fonctionnelles
@@ -195,22 +123,22 @@ Pour le système de gestion d'une bibliothèque d'objets, les exigences fonction
 
 #### Vue d'ensemble des fonctionnalités
 
-| ID       | Fonctionnalité                                                 | Acteur(s)               | Priorité      | 
-|----------|----------------------------------------------------------------|-------------------------|---------------| 
-| **F-01** | Gérer les membres                                              | Bénévole                | Indispensable | 
-| **F-02** | Gérer les comptes utilisateurs                                 | Administrateur          | Indispensable | 
-| **F-03** | Gérer le catalogue des objets                                  | Bénévole, Système       | Indispensable | 
-| **F-04** | Gérer les types d'objets                                       | Bénévole                | Indispensable | 
-| **F-05** | Gérer les formules d'abonnement                                | Bénévole                | Indispensable | 
-| **F-06** | Gérer les abonnements des membres                              | Bénévole                | Indispensable | 
-| **F-07** | Gérer les réservations d'objets                                | Bénévole                | Indispensable | 
-| **F-08** | Gérer les emprunts et les retours                              | Bénévole                | Indispensable | 
-| **F-09** | Gérer les sauvegardes et la restauration des données           | Administrateur, Système | Indispensable | 
-| **F-10** | Initialiser le système à partir des données existantes         | Administrateur, Système | Indispensable |
-| **F-11** | Envoyer les notifications relatives aux abonnements par e-mail | Bénévole, Système       | Souhaitable   | 
-| **F-12** | Envoyer les confirmations de réservation par e-mail            | Bénévole, Système       | Souhaitable   | 
-| **F-13** | Envoyer les reçus d'emprunt par e-mail                         | Bénévole, Système       | Souhaitable   | 
-| **F-14** | Envoyer des rappels par e-mail de retour des objets empruntés  | Bénévole, Système       | Souhaitable   | 
+| ID       | Fonctionnalité                                                 | Acteur(s)               | Priorité       | 
+|----------|----------------------------------------------------------------|-------------------------|----------------| 
+| **F-01** | Gérer les membres                                              | Bénévole                | Indispensable  | 
+| **F-02** | Gérer les comptes utilisateurs                                 | Administrateur          | Indispensable  | 
+| **F-03** | Gérer le catalogue des objets                                  | Bénévole, Système       | Indispensable  | 
+| **F-04** | Gérer les types d'objets                                       | Bénévole                | Indispensable  | 
+| **F-05** | Gérer les formules d'abonnement                                | Bénévole                | Indispensable  | 
+| **F-06** | Gérer les abonnements des membres                              | Bénévole                | Indispensable  | 
+| **F-07** | Gérer les réservations d'objets                                | Bénévole                | Indispensable  | 
+| **F-08** | Gérer les emprunts et les retours                              | Bénévole                | Indispensable  | 
+| **F-09** | Gérer les sauvegardes et la restauration des données           | Administrateur, Système | Indispensable  | 
+| **F-10** | Initialiser le système à partir des données existantes         | Administrateur, Système | Indispensable  |
+| **F-11** | Envoyer les notifications relatives aux abonnements par e-mail | Bénévole, Système       | Souhaitable    | 
+| **F-12** | Envoyer les confirmations de réservation par e-mail            | Bénévole, Système       | Souhaitable    | 
+| **F-13** | Envoyer les reçus d'emprunt par e-mail                         | Bénévole, Système       | Souhaitable    | 
+| **F-14** | Envoyer des rappels par e-mail de retour des objets empruntés  | Bénévole, Système       | Souhaitable    | 
 
 #### Vue d'ensemble du MVP
 
@@ -435,7 +363,7 @@ Le système informe automatiquement les membres lorsque leur abonnement approche
 
 * **EF-11.1** : Le système identifie périodiquement les abonnements dont la date d'expiration approche.
 * **EF-11.2** : Le système envoie une notification au membre concerné avant l'expiration de son abonnement.
-  * *Critère d'acceptation* : Si l’e-mail du membre n’est pas enregistré dans le système, alors aucun rnotification ne lui sera envoyé.
+  * *Critère d'acceptation* : Si l’e-mail du membre n’est pas enregistrée dans le système, alors aucune notification ne lui sera envoyé.
 * **EF-11.3** : La notification contient les informations essentielles de l'abonnement, notamment sa date d'expiration.
 * **EF-11.4** : Le système permet de définir le délai précédant l'expiration auquel la notification doit être envoyée.
 * **EF-11.5** : Le système évite d'envoyer plusieurs notifications identiques pour une même échéance, selon la fréquence définie.
@@ -515,22 +443,16 @@ Le système doit protéger les données et empêcher les utilisateurs non autori
 - **ENF-01.3** : Le système doit appliquer les autorisations correspondant au rôle de chaque utilisateur.
 - **ENF-01.4** : Les sessions doivent expirer après une période d’inactivité définie, si cela est pertinent pour l’application.
 
-> **Pourquoi ?** Le système gère des comptes, des informations personnelles de membres et des opérations réalisées par les bénévoles et les administrateurs.
-
 #### ENF-02 — Confidentialité et protection des données
 
 - **ENF-02.1** : Le système doit limiter l’accès aux données personnelles aux utilisateurs qui en ont besoin dans le cadre de leurs fonctions.
 - **ENF-02.2** : Les données personnelles ne doivent pas être divulguées à des personnes non autorisées.
 - **ENF-02.3** : Les données doivent être conservées et supprimées conformément aux règles de conservation applicables.
 
-> **Pourquoi ?** Les dossiers des membres peuvent contenir des noms, des coordonnées, des informations d’abonnement et un historique d’emprunts.
-
 #### ENF-03 — Performance
 
 - **ENF-03.1** : Le système doit afficher les résultats d’une recherche dans le catalogue en moins de 2 secondes dans des conditions normales d’utilisation.
 - **ENF-03.2** : Les opérations courantes — consultation d’un membre, enregistrement d’un emprunt ou d’un retour — doivent être exécutées en moins de 3 secondes dans des conditions normales d’utilisation.
-
-> **Pourquoi ?** Les bénévoles doivent pouvoir gérer rapidement les emprunts et les retours, notamment lorsqu’ils accueillent plusieurs membres. Les délais de 2 et 3 secondes sont des objectifs proposés, à valider avec le client.
 
 #### ENF-04 — Fiabilité et intégrité des données
 
@@ -539,14 +461,10 @@ Le système doit protéger les données et empêcher les utilisateurs non autori
 - **ENF-04.3** : Le système doit empêcher qu’un même exemplaire soit attribué à plusieurs emprunts simultanés incompatibles.
 - **ENF-04.4** : Les montants des cautions encaissées, restituées ou retenues doivent être enregistrés de manière cohérente et traçable.
 
-> **Pourquoi ?** Une erreur pourrait entraîner un double emprunt, une disponibilité incorrecte ou une contestation concernant une caution.
-
 #### ENF-05 — Disponibilité du système
 
 - **ENF-05.1** : Le système doit être accessible pendant les heures d’ouverture de la bibliothèque, sous réserve des opérations de maintenance annoncées.
 - **ENF-05.2** : Les interruptions planifiées doivent être limitées et, si possible, communiquées à l’avance.
-
-> **Pourquoi ?** Les bénévoles doivent pouvoir consulter le catalogue et enregistrer les opérations pendant leurs permanences. Un taux de disponibilité précis, par exemple 99 %, ne devrait être imposé que si le client le juge nécessaire.
 
 #### ENF-06 — Sauvegarde et récupération des données
 
@@ -554,22 +472,16 @@ Le système doit protéger les données et empêcher les utilisateurs non autori
 - **ENF-06.2** : Les sauvegardes doivent permettre de restaurer les informations en cas de panne ou de perte de données.
 - **ENF-06.3** : La procédure de restauration doit être testée périodiquement.
 
-> **Pourquoi ?** La perte des données pourrait supprimer les historiques d’emprunts, les dossiers des membres ou le suivi des cautions.
-
 #### ENF-07 — Ergonomie et facilité d’utilisation
 
 - **ENF-07.1** : L’interface doit être compréhensible par des bénévoles ne possédant pas nécessairement de compétences informatiques avancées.
 - **ENF-07.2** : Les champs obligatoires, les erreurs de saisie et les confirmations d’opération doivent être clairement signalés.
 - **ENF-07.3** : Les actions courantes, telles que rechercher un objet, enregistrer un emprunt ou confirmer un retour, doivent être accessibles avec un nombre raisonnable d’étapes.
 
-> **Pourquoi ?** Le système est destiné à faciliter le travail des bénévoles, et non à rendre les opérations plus complexes.
-
 #### ENF-08 — Compatibilité
 
 - **ENF-08.1** : Le système etant un logiciel, il doit fonctionner sur les versions récentes des principaux systèmes d’exploitations retenus pour le projet.
 - **ENF-08.2** : L’interface doit rester utilisable sur les formats d’écran retenus, notamment les ordinateurs utilisés à la bibliothèque.
-
-> **Pourquoi ?** Cette exigence dépend de la plateforme qui sera choisie pour développer l’application.
 
 #### ENF-09 — Maintenabilité et évolutivité
 
@@ -577,14 +489,10 @@ Le système doit protéger les données et empêcher les utilisateurs non autori
 - **ENF-09.2** : Les règles métier importantes, notamment celles relatives aux abonnements, aux emprunts et aux cautions, doivent être documentées.
 - **ENF-09.3** : L’ajout de nouveaux types d’objets ou de nouvelles formules d’abonnement ne doit pas nécessiter une modification majeure de l’application.
 
-> **Pourquoi ?** La bibliothèque pourrait faire évoluer ses règles de gestion, ses catégories d’objets et ses formules d’abonnement.
-
 #### ENF-10 — Traçabilité des opérations
 
 - **ENF-10.1** : Le système doit permettre de retrouver l’historique des opérations importantes, notamment les emprunts, les retours et les modifications de l’état des objets.
 - **ENF-10.2** : Les traces techniques ne doivent pas exposer inutilement les mots de passe ou d’autres données sensibles.
-
-> **Pourquoi ?** La traçabilité facilite la résolution des litiges et permet de comprendre ce qui s’est passé lorsqu’un objet est endommagé ou qu’une caution est retenue.
 
 #### ENF-11 — Expérience utilisateur et accessibilité de l'interface (UI/UX)
 
@@ -593,31 +501,30 @@ L'interface utilisateur doit offrir une navigation intuitive, fluide et accessib
 - **ENF-11.1** : L'interface doit proposer un design ergonomique respectant les principes d'accessibilité de base (notamment des contrastes de couleurs suffisants et une taille de police lisible) pour faciliter la lecture sur les écrans de la bibliothèque.
 - **ENF-11.2** : Le système doit fournir un retour visuel immédiat et explicite à l'utilisateur suite à chaque action validée (confirmation de succès, message d'alerte en cas d'erreur de saisie ou blocage).
 
-> **Pourquoi ?** Une bonne expérience utilisateur (UX) et une interface (UI) épurée permettent aux bénévoles d'enchaîner rapidement les opérations aux heures de forte affluence tout en réduisant les risques d'erreurs de saisie.
 ## 4. Contraintes
 - Les données sont traitées conformément au RGPD.
 - Le développement de l'application est effectué en python en accord avec le cours de développement informatique 2.
-- L'utilisation de l'application ne demande aucune connaissance technique étant donné qu'aucun personnel technique ne se trouve dans l'équipe de bénévols.
+- L'utilisation de l'application ne demande aucune connaissance technique étant donné qu'aucun personnel technique ne se trouve dans l'équipe de bénévoles.
 ## 5. Budget
 
-Le projet est réalisé dans un cadre scolaire , sans coût pour la bibliothèque. Charge estimée : 140 heures de travail (4 etudiants * 35 heures).
+Le projet est réalisé dans un cadre scolaire, sans coût pour la bibliothèque. Charge estimée : 140 heures de travail (4 etudiants * 35 heures).
 
 ## 6. Livrables et planning
 
 ### 6.1. Livrables
 - **L-01** L'Application installée et mise en ligne
 - **L-02** Une guide d'utilisation pour la responsable et les bénévoles
-- **L-03** La repsie de la listes des membres et des objets depuis le fichier excel
+- **L-03** La reprise de la liste des membres et des objets depuis le fichier excel
 - **L-04** Le code source et la documentation technique
 
 ### 6.2. Échéances
-| SEMAINE | ECHEANCE                                                              |
-|:--------|:----------------------------------------------------------------------|
-| S2      | Validation du cahiers de charge                                       |
-|         | conception                                                            |
-|         | livraison du MVP (F-01 - F-08). reprises des membres et objets (L-03) |
-|         | second increment : F-09 - F-12                                        |
-|         | version finale , guide d'utilisation recette finale                   |
+| SEMAINE  | ECHEANCE                                                              |
+|:---------|:----------------------------------------------------------------------|
+| S2       | Validation du cahier des charges                                      |
+|          | conception                                                            |
+|          | livraison du MVP (F-01 - F-08). reprises des membres et objets (L-03) |
+|          | second increment : F-09 - F-12                                        |
+|          | version finale , guide d'utilisation recette finale                   |
 
 ### 6.3. Retours vers le client
 - Demo à la responsable et aux benevoles à chaque livraison et point technique
@@ -625,13 +532,17 @@ Le projet est réalisé dans un cadre scolaire , sans coût pour la bibliothèqu
 
 ## 7. Validation du projet
 
-- **Qui :** Les 06 Bénévoles et la resposable de la bibliothèque accompagnés d'un ou plusieurs membres du groupe  
-- **Quand :** En S2 pour la validation du cahier de charge, s-- pour la livraison du MVP et S-- pour la validation de la version finale   
-- **Sur quelle base :** la verification des critères d'exigences fonctionnelles section 3.1 , non fonctionnelles 3.2, des contraintes section 4  
-- **Suivi des anomalies :** Les anomalies sont rélévés et prise en compte, avec l'identifiant de la section concernées et sa gravité (mineure,majeure,bloquante)   
-- **Reception :** la responsable de la bibliothèque prononce la reception de la version finale en S-- s'il ne reste aucune anomalie bloquante ou majeure. Pour les anomalies mineures elles sont listées comme reservéés.
+- **Qui :** Les 06 Bénévoles et la responsable de la bibliothèque accompagnés d'un ou plusieurs membres du groupe  
+- **Quand :** En S2 pour la validation du cahier des charges, Sxx pour la livraison du MVP et Sxx pour la validation de la version finale   
+- **Sur quelle base :** la verification des critères d'exigences fonctionnelles section 3.1, non fonctionnelles 3.2, des contraintes section 4  
+- **Suivi des anomalies :** Les anomalies sont rélévées et prise en compte, avec l'identifiant de la section concernées et sa gravité (mineure, majeure, bloquante)   
+- **Reception :** La responsable de la bibliothèque prononce la reception de la version finale en Sxx s'il ne reste aucune anomalie bloquante ou majeure. Pour les anomalies mineures, elles sont listées comme reservées.
 
-## 8. Questions ouvertes
 
+## 8. Maintenance
+
+## 9. Questions ouvertes
+
+## 10. Glossaire
 
 
