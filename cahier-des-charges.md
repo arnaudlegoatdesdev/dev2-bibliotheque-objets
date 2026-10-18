@@ -66,6 +66,12 @@
 
 ### 2.1. Vue d'ensemble du produit et de son environnement
 
+- L'application servira d'outil de gestion aux bénévoles pendants les permanences. Elle remplacera Airtable pour le catalogue et le tableur utilisé pour les emprunts, les retours et les réservations.
+
+- Elle sera principalement utilisée sur l'ordinateur portable du local, qui dispose d'une connexion internet fonctionnant généralement bien.
+
+- Le catalogue existant devra être repris au démarrage de l'application, avec les objets, leurs catégories, leurs photos et leur disponibilité. Le catalogue papier affiché au local sera conservé.
+
 ### 2.2. Profils utilisateurs
 
 ### 2.3. Périmètre
