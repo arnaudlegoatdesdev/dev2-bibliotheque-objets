@@ -414,12 +414,114 @@ Le système envoie automatiquement des rappels aux membres lorsque la date prév
 > **Données impliquées** : D-01 (données du membre), D-03 (données des objets), D-08 (données des emprunts), D-09 (données des notifications).
 
 
-### 3.2. Exigences non fonctionnelles
-- **ENF-01 :** Une documentation utilisateur est fournie pour permettre une utilisation autonome de l'application par les bénévoles.
-- **ENF-02 :** Une documentation développeur est fournie pour permettre la maintenance de l'application par les bénévoles.
-- **ENF-03 :** Le code source est fourni de façon Open Source.
-- **ENF-04 :** L'application possède une interface graphique. (GUI)
-- **ENF-05 :** L'application est utilisable par six personnes simultanément.
+### 3.2. Exigences non fonctionnelles proposées
+
+Les exigences ci-dessous sont des propositions déduites du contexte du projet. Elles ne sont pas encore des contraintes explicitement validées par Mme Pereira.
+
+#### Vue d’ensemble des exigences non fonctionnelles
+
+| ID | Exigence non fonctionnelle | Priorité proposée |
+| :--- | :--- | :--- |
+| **ENF-01** | Sécurité et contrôle d’accès | Indispensable |
+| **ENF-02** | Confidentialité et protection des données | Indispensable |
+| **ENF-03** | Performance | Souhaitable |
+| **ENF-04** | Fiabilité et intégrité des données | Indispensable |
+| **ENF-05** | Disponibilité du système | Souhaitable |
+| **ENF-06** | Sauvegarde et récupération des données | Indispensable |
+| **ENF-07** | Ergonomie et facilité d’utilisation | Indispensable |
+| **ENF-08** | Compatibilité avec les environnements retenus | À confirmer |
+| **ENF-09** | Maintenabilité et évolutivité | Souhaitable |
+| **ENF-10** | Traçabilité des opérations | Indispensable |
+| **ENF-11** | Expérience utilisateur et accessibilité de l'interface (UI/UX) | Souhaitable |
+
+#### ENF-01 — Sécurité et contrôle d’accès
+
+Le système doit protéger les données et empêcher les utilisateurs non autorisés d’accéder aux fonctionnalités ou aux informations qui ne leur sont pas destinées.
+
+- **ENF-01.1** : Le système doit exiger une authentification pour accéder aux fonctionnalités protégées.
+- **ENF-01.2** : Les mots de passe doivent être stockés sous une forme sécurisée, à l’aide d’un mécanisme de hachage adapté.
+- **ENF-01.3** : Le système doit appliquer les autorisations correspondant au rôle de chaque utilisateur.
+- **ENF-01.4** : Les sessions doivent expirer après une période d’inactivité définie, si cela est pertinent pour l’application.
+
+> **Pourquoi ?** Le système gère des comptes, des informations personnelles de membres et des opérations réalisées par les bénévoles et les administrateurs.
+
+#### ENF-02 — Confidentialité et protection des données
+
+- **ENF-02.1** : Le système doit limiter l’accès aux données personnelles aux utilisateurs qui en ont besoin dans le cadre de leurs fonctions.
+- **ENF-02.2** : Les données personnelles ne doivent pas être divulguées à des personnes non autorisées.
+- **ENF-02.3** : Les données doivent être conservées et supprimées conformément aux règles de conservation applicables.
+
+> **Pourquoi ?** Les dossiers des membres peuvent contenir des noms, des coordonnées, des informations d’abonnement et un historique d’emprunts.
+
+#### ENF-03 — Performance
+
+- **ENF-03.1** : Le système doit afficher les résultats d’une recherche dans le catalogue en moins de 2 secondes dans des conditions normales d’utilisation.
+- **ENF-03.2** : Les opérations courantes — consultation d’un membre, enregistrement d’un emprunt ou d’un retour — doivent être exécutées en moins de 3 secondes dans des conditions normales d’utilisation.
+
+> **Pourquoi ?** Les bénévoles doivent pouvoir gérer rapidement les emprunts et les retours, notamment lorsqu’ils accueillent plusieurs membres. Les délais de 2 et 3 secondes sont des objectifs proposés, à valider avec le client.
+
+#### ENF-04 — Fiabilité et intégrité des données
+
+- **ENF-04.1** : Le système doit garantir l’unicité des identifiants des membres, des comptes utilisateurs et des exemplaires physiques.
+- **ENF-04.2** : Une opération interrompue ne doit pas laisser les données dans un état incohérent.
+- **ENF-04.3** : Le système doit empêcher qu’un même exemplaire soit attribué à plusieurs emprunts simultanés incompatibles.
+- **ENF-04.4** : Les montants des cautions encaissées, restituées ou retenues doivent être enregistrés de manière cohérente et traçable.
+
+> **Pourquoi ?** Une erreur pourrait entraîner un double emprunt, une disponibilité incorrecte ou une contestation concernant une caution.
+
+#### ENF-05 — Disponibilité du système
+
+- **ENF-05.1** : Le système doit être accessible pendant les heures d’ouverture de la bibliothèque, sous réserve des opérations de maintenance annoncées.
+- **ENF-05.2** : Les interruptions planifiées doivent être limitées et, si possible, communiquées à l’avance.
+
+> **Pourquoi ?** Les bénévoles doivent pouvoir consulter le catalogue et enregistrer les opérations pendant leurs permanences. Un taux de disponibilité précis, par exemple 99 %, ne devrait être imposé que si le client le juge nécessaire.
+
+#### ENF-06 — Sauvegarde et récupération des données
+
+- **ENF-06.1** : Le système doit disposer d’un mécanisme de sauvegarde des données.
+- **ENF-06.2** : Les sauvegardes doivent permettre de restaurer les informations en cas de panne ou de perte de données.
+- **ENF-06.3** : La procédure de restauration doit être testée périodiquement.
+
+> **Pourquoi ?** La perte des données pourrait supprimer les historiques d’emprunts, les dossiers des membres ou le suivi des cautions.
+
+#### ENF-07 — Ergonomie et facilité d’utilisation
+
+- **ENF-07.1** : L’interface doit être compréhensible par des bénévoles ne possédant pas nécessairement de compétences informatiques avancées.
+- **ENF-07.2** : Les champs obligatoires, les erreurs de saisie et les confirmations d’opération doivent être clairement signalés.
+- **ENF-07.3** : Les actions courantes, telles que rechercher un objet, enregistrer un emprunt ou confirmer un retour, doivent être accessibles avec un nombre raisonnable d’étapes.
+
+> **Pourquoi ?** Le système est destiné à faciliter le travail des bénévoles, et non à rendre les opérations plus complexes.
+
+#### ENF-08 — Compatibilité
+
+- **ENF-08.1** : Le système etant un logiciel, il doit fonctionner sur les versions récentes des principaux systèmes d’exploitations retenus pour le projet.
+- **ENF-08.2** : L’interface doit rester utilisable sur les formats d’écran retenus, notamment les ordinateurs utilisés à la bibliothèque.
+
+> **Pourquoi ?** Cette exigence dépend de la plateforme qui sera choisie pour développer l’application.
+
+#### ENF-09 — Maintenabilité et évolutivité
+
+- **ENF-09.1** : Le code source doit être organisé de manière modulaire afin de faciliter les corrections et les évolutions.
+- **ENF-09.2** : Les règles métier importantes, notamment celles relatives aux abonnements, aux emprunts et aux cautions, doivent être documentées.
+- **ENF-09.3** : L’ajout de nouveaux types d’objets ou de nouvelles formules d’abonnement ne doit pas nécessiter une modification majeure de l’application.
+
+> **Pourquoi ?** La bibliothèque pourrait faire évoluer ses règles de gestion, ses catégories d’objets et ses formules d’abonnement.
+
+#### ENF-10 — Traçabilité des opérations
+
+- **ENF-10.1** : Le système doit permettre de retrouver l’historique des opérations importantes, notamment les emprunts, les retours et les modifications de l’état des objets.
+- **ENF-10.2** : Les traces techniques ne doivent pas exposer inutilement les mots de passe ou d’autres données sensibles.
+
+> **Pourquoi ?** La traçabilité facilite la résolution des litiges et permet de comprendre ce qui s’est passé lorsqu’un objet est endommagé ou qu’une caution est retenue.
+
+#### ENF-11 — Expérience utilisateur et accessibilité de l'interface (UI/UX)
+
+L'interface utilisateur doit offrir une navigation intuitive, fluide et accessible, minimisant la charge cognitive des utilisateurs lors de la manipulation quotidienne du système.
+
+- **ENF-11.1** : L'interface doit proposer un design ergonomique respectant les principes d'accessibilité de base (notamment des contrastes de couleurs suffisants et une taille de police lisible) pour faciliter la lecture sur les écrans de la bibliothèque.
+- **ENF-11.2** : Le système doit fournir un retour visuel immédiat et explicite à l'utilisateur suite à chaque action validée (confirmation de succès, message d'alerte en cas d'erreur de saisie ou blocage).
+
+> **Pourquoi ?** Une bonne expérience utilisateur (UX) et une interface (UI) épurée permettent aux bénévoles d'enchaîner rapidement les opérations aux heures de forte affluence tout en réduisant les risques d'erreurs de saisie.
 ## 4. Contraintes
 - Les données sont traitées conformément au RGPD.
 - Le développement de l'application est effectué en python en accord avec le cours de développement informatique 2.
