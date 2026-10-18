@@ -67,17 +67,7 @@
 
 ### 2.1. Vue d'ensemble du produit et de son environnement
 
-- L'application servira d'outil de gestion aux bénévoles pendants les permanences. Elle remplacera Airtable pour le catalogue et le tableur utilisé pour les emprunts, les retours et les réservations.
-
-- Elle sera principalement utilisée sur l'ordinateur portable du local, qui dispose d'une connexion internet fonctionnant généralement bien.
-
-- Le catalogue existant devra être repris au démarrage de l'application, avec les objets, leurs catégories, leurs photos et leur disponibilité. Le catalogue papier affiché au local sera conservé.
-
 ### 2.2. Profils utilisateurs
-
-- **Bénévoles de permanence** : les six bénévoles sont les principaux utilisateurs de l'application. Ils gèrent le catalogue, les membres, les réservations, les emprunts et les retours, ainsi que l'état des objets et les cautions. Ils disposent des mêmes accès. N'ayant pas de connaissances techniques particulières, ils ont besoin d'un outil simple à utiliser pendant les permanences.
-
-- **Membres** : la bibliothèque compte environ 120 membres disposant d'un abonnement annuel. La cliente souhaite qu'ils puissent consulter le catalogue pendant les permanences. Les opérations de gestion restent effectuées par les bénévoles. La consultation à distance et la reservation autonome par les membres est évoquée comme une possibilitée plus tard, mais la cliente n'est pas encore décidé.
 
 ### 2.3. Périmètre
 
@@ -382,12 +372,11 @@ Le système envoie automatiquement des rappels aux membres lorsque la date prév
 
 ## 7. Validation du projet
 
-  **- Qui :** Les 06 Bénévoles et la resposable de la bibliothèque accompagnés d'un ou plusieurs membres du groupe
-  **- Quand :** En S2 pour la validation du cahier de charge, s-- pour la livraison du MVP et S-- pour la validation de la version finale 
-  **- Sur quelle base :** la verification des critères d'exigences fonctionnelles section 3.1 , non fonctionnelles 3.2, des contraintes section 4
-  **- Suivi des anomalies :** Les anomalies sont rélévés et prise en compte, avec l'identifiant de la section concernées et sa gravité (mineure,majeure,bloquante) 
-  **- Reception :** la responsable de la bibliothèque prononce la reception de la version finale en S-- s'il ne reste aucune anomalie bloquante ou majeure. Pour les anomalies mineures elles sont listées comme reservéés.
-
+  - **Qui :** Les 06 Bénévoles et la resposable de la bibliothèque accompagnés d'un ou plusieurs membres du groupe
+  - **Quand :** En S2 pour la validation du cahier de charge, s-- pour la livraison du MVP et S-- pour la validation de la version finale 
+  - **Sur quelle base :** la verification des critères d'exigences fonctionnelles section 3.1 , non fonctionnelles 3.2, des contraintes section 4
+  - **Suivi des anomalies :** Les anomalies sont rélévés et prise en compte, avec l'identifiant de la section concernées et sa gravité (mineure,majeure,bloquante) 
+  - **Reception :** la responsable de la bibliothèque prononce la reception de la version finale en S-- s'il ne reste aucune anomalie bloquante ou majeure. Pour les anomalies mineures elles sont listées comme reservéés.
 
 ## 8. Maintenance
 
