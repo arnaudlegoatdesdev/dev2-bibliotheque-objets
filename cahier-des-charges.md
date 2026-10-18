@@ -414,7 +414,7 @@ Le système envoie automatiquement des rappels aux membres lorsque la date prév
 > **Données impliquées** : D-01 (données du membre), D-03 (données des objets), D-08 (données des emprunts), D-09 (données des notifications).
 
 
-### 3.2. Exigences non fonctionnelles proposées
+### 3.2. Exigences non fonctionnelles
 
 Les exigences ci-dessous sont des propositions déduites du contexte du projet. Elles ne sont pas encore des contraintes explicitement validées par Mme Pereira.
 
