@@ -181,7 +181,7 @@
   - Conservation : à définir.
   - Opérations prévues : produire le rapport et permettre sa consultation par la personne chargée de l’importation (F-10). Cette personne reste à confirmer.
 
-Les champs obligatoires, les formats attendus et les règles d’unicité des coordonnées restent à préciser avec la cliente.
+Les champs obligatoires, les formats attendus des coordonnées restent à préciser avec la cliente.
 
 Les coordonnées des membres, les comptes et les historiques associés à une personne sont des données personnelles. Les droits d’accès précis restent à valider. Les sauvegardes contenant ces informations doivent bénéficier des mêmes restrictions d’accès.
 
