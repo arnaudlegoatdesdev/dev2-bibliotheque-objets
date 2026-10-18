@@ -347,7 +347,6 @@ Le système envoie automatiquement des rappels aux membres lorsque la date prév
 ### 6.1. Livrables
   - **L-01** L'Application installée et mise en ligne
   - **L-02** Une guide d'utilisation pour la responsable et les bénévoles
-  - **L-03**
   - **L-04** Le code source et la documentation technique
 
 ### 6.2. Échéances
