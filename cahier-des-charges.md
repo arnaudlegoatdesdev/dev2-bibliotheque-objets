@@ -345,14 +345,8 @@ Le système envoie automatiquement des rappels aux membres lorsque la date prév
 ## 6. Livrables et planning
 
 ### 6.1. Livrables
-<<<<<<< HEAD
-  
-=======
-  - **L-01** L'Application installée et mise en ligne
-  - **L-02** Une guide d'utilisation pour la responsable et les bénévoles
-  - **L-04** Le code source et la documentation technique
->>>>>>> 4bf3bc7f0d8497c06e7fa72ea34a8212b6ab297c
 
+  
 ### 6.2. Échéances
 
 ### 6.3. Retours vers le client
