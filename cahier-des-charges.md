@@ -75,6 +75,10 @@
 
 ### 2.2. Profils utilisateurs
 
+- **Bénévoles de permanence** : les six bénévoles sont les principaux utilisateurs de l'application. Ils gèrent le catalogue, les membres, les réservations, les emprunts et les retours, ainsi que l'état des objets et les cautions. Ils disposent des mêmes accès. N'ayant pas de connaissances techniques particulières, ils ont besoin d'un outil simple à utiliser pendant les permanences.
+
+- **Membres** : la bibliothèque compte environ 120 membres disposant d'un abonnement annuel. La cliente souhaite qu'ils puissent consulter le catalogue pendant les permanences. Les opérations de gestion restent effectuées par les bénévoles. La consultation à distance et la reservation autonome par les membres est évoquée comme une possibilitée plus tard, mais la cliente n'est pas encore décidé.
+
 ### 2.3. Périmètre
 
 ### 2.4. Règles métier
