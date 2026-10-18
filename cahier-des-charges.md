@@ -372,6 +372,12 @@ Le système envoie automatiquement des rappels aux membres lorsque la date prév
 
 ## 7. Validation du projet
 
+  **- Qui :** Les 06 Bénévoles et la resposable de la bibliothèque accompagnés d'un ou plusieurs membres du groupe
+  **- Quand :** En S2 pour la validation du cahier de charge, s-- pour la livraison du MVP et S-- pour la validation de la version finale 
+  **- Sur quelle base :** la verification des critères d'exigences fonctionnelles section 3.1 , non fonctionnelles 3.2, des contraintes section 4
+  **- Suivi des anomalies :** Les anomalies sont rélévés et prise en compte, avec l'identifiant de la section concernées et sa gravité (mineure,majeure,bloquante) 
+  **- Reception :** la responsable de la bibliothèque prononce la reception de la version finale en S-- s'il ne reste aucune anomalie bloquante ou majeure. Pour les anomalies mineures elles sont listées comme reservéés.
+
 ## 8. Maintenance
 
 ## 9. Questions ouvertes
