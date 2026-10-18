@@ -516,6 +516,7 @@ Le projet est réalisé dans un cadre scolaire, sans coût pour la bibliothèque
 - **L-02** Une guide d'utilisation pour la responsable et les bénévoles
 - **L-03** La reprise de la liste des membres et des objets depuis le fichier excel
 - **L-04** Le code source et la documentation technique
+- **L-05** Le guide d'installation et de configuration de l'application
 
 ### 6.2. Échéances
 | SEMAINE  | ECHEANCE                                                              |
