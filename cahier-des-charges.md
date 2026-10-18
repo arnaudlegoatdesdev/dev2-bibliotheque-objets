@@ -160,11 +160,11 @@
   - Conservation : historique des emprunts conservé au moins une année complète. La conservation des incidents tant que l’objet reste dans la collection a été acceptée dans son principe, mais ses modalités restent à préciser.
   - Opérations : enregistrer un emprunt, prolonger un emprunt, enregistrer un retour et consulter l’historique par un bénévole (F-08).
 
-- **D-09** Notification — sous réserve de validation : membre destinataire (D-01), abonnement, réservation ou emprunt concerné (D-06, D-07 ou D-08), type de notification, contenu du message, date et résultat de l’envoi.
+- **D-09** Notification : sous réserve de validation : membre destinataire (D-01), abonnement, réservation ou emprunt concerné (D-06, D-07 ou D-08), type de notification, contenu du message, date et résultat de l’envoi.
   - Volume et conservation : à préciser si les notifications sont retenues.
   - Origine et opérations : notifications produites et envoyées par le système pour les fonctionnalités F-11, F-12 et F-14. Un rappel de retour peut également être déclenché par un bénévole dans F-14.
 
-- **D-10** Reçu d’emprunt — modalités à valider : emprunt concerné (D-08), identité du membre, objet emprunté, date d’emprunt, date de retour prévue, pièces incluses et montant de la caution. La date et le résultat de l’envoi sont également enregistrés si l’envoi par e-mail est retenu.
+- **D-10** Reçu d’emprunt : modalités à valider : emprunt concerné (D-08), identité du membre, objet emprunté, date d’emprunt, date de retour prévue, pièces incluses et montant de la caution. La date et le résultat de l’envoi sont également enregistrés si l’envoi par e-mail est retenu.
   - Volume : dépend du nombre d’emprunts donnant lieu à un reçu.
   - Origine et opérations : reçu produit à partir des informations de l’emprunt (F-13). Son envoi par e-mail reste à valider.
   - Conservation : à définir avec la cliente.
@@ -492,19 +492,19 @@ Les exigences ci-dessous sont des propositions déduites du contexte du projet. 
 
 #### Vue d’ensemble des exigences non fonctionnelles
 
-| ID | Exigence non fonctionnelle | Priorité proposée |
-| :--- | :--- | :--- |
-| **ENF-01** | Sécurité et contrôle d’accès | Indispensable |
-| **ENF-02** | Confidentialité et protection des données | Indispensable |
-| **ENF-03** | Performance | Souhaitable |
-| **ENF-04** | Fiabilité et intégrité des données | Indispensable |
-| **ENF-05** | Disponibilité du système | Souhaitable |
-| **ENF-06** | Sauvegarde et récupération des données | Indispensable |
-| **ENF-07** | Ergonomie et facilité d’utilisation | Indispensable |
-| **ENF-08** | Compatibilité avec les environnements retenus | À confirmer |
-| **ENF-09** | Maintenabilité et évolutivité | Souhaitable |
-| **ENF-10** | Traçabilité des opérations | Indispensable |
-| **ENF-11** | Expérience utilisateur et accessibilité de l'interface (UI/UX) | Souhaitable |
+| ID         | Exigence non fonctionnelle                                     | Priorité proposée |
+|:-----------|:---------------------------------------------------------------|:------------------|
+| **ENF-01** | Sécurité et contrôle d’accès                                   | Indispensable     |
+| **ENF-02** | Confidentialité et protection des données                      | Indispensable     |
+| **ENF-03** | Performance                                                    | Souhaitable       |
+| **ENF-04** | Fiabilité et intégrité des données                             | Indispensable     |
+| **ENF-05** | Disponibilité du système                                       | Souhaitable       |
+| **ENF-06** | Sauvegarde et récupération des données                         | Indispensable     |
+| **ENF-07** | Ergonomie et facilité d’utilisation                            | Indispensable     |
+| **ENF-08** | Compatibilité avec les environnements retenus                  | À confirmer       |
+| **ENF-09** | Maintenabilité et évolutivité                                  | Souhaitable       |
+| **ENF-10** | Traçabilité des opérations                                     | Indispensable     |
+| **ENF-11** | Expérience utilisateur et accessibilité de l'interface (UI/UX) | Souhaitable       |
 
 #### ENF-01 — Sécurité et contrôle d’accès
 
@@ -611,13 +611,13 @@ Le projet est réalisé dans un cadre scolaire , sans coût pour la bibliothèqu
 - **L-04** Le code source et la documentation technique
 
 ### 6.2. Échéances
-| SEMAINE  | ECHEANCE                                            |
-|:---------|:----------------------------------------------------|
-| S2       | Validation du cahiers de charge                     |
-|          | conception                                          |
-|          | livraison du MVP (F-01 - F-08). reprises des membres et objets (L-03)|
-|          | second increment : F-09 - F-12                      |
-|          | version finale , guide d'utilisation recette finale |
+| SEMAINE | ECHEANCE                                                              |
+|:--------|:----------------------------------------------------------------------|
+| S2      | Validation du cahiers de charge                                       |
+|         | conception                                                            |
+|         | livraison du MVP (F-01 - F-08). reprises des membres et objets (L-03) |
+|         | second increment : F-09 - F-12                                        |
+|         | version finale , guide d'utilisation recette finale                   |
 
 ### 6.3. Retours vers le client
 - Demo à la responsable et aux benevoles à chaque livraison et point technique
