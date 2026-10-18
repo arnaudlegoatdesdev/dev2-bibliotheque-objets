@@ -13,14 +13,14 @@
 |:--------|:-----|:-----------------|
 | v0.1    |      | Version Initiale |
 ## Convention d'identification
-| Element | Format   | Exemple |
-| :------ |:---------|:--------|
-| Règle métier | RM-xx    | RM-01   |
-| Donnée | D-xx     | D-02    |
-| Fonctionnalité | F-xx     | F-03    |
-| Exigence fonctionnelle | EF-xx.y  | EF-04.1 |
+| Element                    | Format   | Exemple |
+|:---------------------------|:---------|:--------|
+| Règle métier               | RM-xx    | RM-01   |
+| Donnée                     | D-xx     | D-02    |
+| Fonctionnalité             | F-xx     | F-03    |
+| Exigence fonctionnelle     | EF-xx.y  | EF-04.1 |
 | Exigence non fonctionnelle | ENF-xx   | ENF-05  |
-| Question ouverte | Q-xx     | Q-06    |
+| Question ouverte           | Q-xx     | Q-06    |
 
 ### Table des matières
 1. Contexte
@@ -84,20 +84,20 @@ Pour le système de gestion d'une bibliothèque d'objets, les exigences fonction
 
 #### Vue d'ensemble des fonctionnalités
 
-| ID | Fonctionnalité | Acteur(s) | Priorité | 
-| ----- | ----- | ----- | ----- | 
-| **F-01** | Gérer les membres | Bénévole | Indispensable | 
-| **F-02** | Gérer les comptes utilisateurs | Administrateur | Indispensable | 
-| **F-03** | Gérer le catalogue des objets | Bénévole, Système | Indispensable | 
-| **F-04** | Gérer les types d'objets | Bénévole | Indispensable | 
-| **F-05** | Gérer les formules d'abonnement | Bénévole | Indispensable | 
-| **F-06** | Gérer les abonnements des membres | Bénévole | Indispensable | 
-| **F-07** | Gérer les réservations d'objets | Bénévole | Indispensable | 
-| **F-08** | Gérer les emprunts et les retours | Bénévole | Indispensable | 
-| **F-09** | Envoyer les notifications relatives aux abonnements par e-mail | Bénévole, Système | Souhaitable | 
-| **F-10** | Envoyer les confirmations de réservation par e-mail | Bénévole, Système | Souhaitable | 
-| **F-11** | Envoyer les reçus d'emprunt par e-mail | Bénévole, Système | Souhaitable | 
-| **F-12** | Envoyer des rappels par e-mail de retour des objets empruntés | Bénévole, Système | Souhaitable | 
+| ID       | Fonctionnalité                                                 | Acteur(s)         | Priorité      | 
+|----------|----------------------------------------------------------------|-------------------|---------------| 
+| **F-01** | Gérer les membres                                              | Bénévole          | Indispensable | 
+| **F-02** | Gérer les comptes utilisateurs                                 | Administrateur    | Indispensable | 
+| **F-03** | Gérer le catalogue des objets                                  | Bénévole, Système | Indispensable | 
+| **F-04** | Gérer les types d'objets                                       | Bénévole          | Indispensable | 
+| **F-05** | Gérer les formules d'abonnement                                | Bénévole          | Indispensable | 
+| **F-06** | Gérer les abonnements des membres                              | Bénévole          | Indispensable | 
+| **F-07** | Gérer les réservations d'objets                                | Bénévole          | Indispensable | 
+| **F-08** | Gérer les emprunts et les retours                              | Bénévole          | Indispensable | 
+| **F-09** | Envoyer les notifications relatives aux abonnements par e-mail | Bénévole, Système | Souhaitable   | 
+| **F-10** | Envoyer les confirmations de réservation par e-mail            | Bénévole, Système | Souhaitable   | 
+| **F-11** | Envoyer les reçus d'emprunt par e-mail                         | Bénévole, Système | Souhaitable   | 
+| **F-12** | Envoyer des rappels par e-mail de retour des objets empruntés  | Bénévole, Système | Souhaitable   | 
 
 #### Vue d'ensemble du MVP
 
@@ -335,9 +335,16 @@ Le système envoie automatiquement des rappels aux membres lorsque la date prév
 #### Fiches des fonctionnalités
 
 ### 3.2. Exigences non fonctionnelles
-
+- **ENF-01 :** Une documentation utilisateur est fournie pour permettre une utilisation autonome de l'application par les bénévoles.
+- **ENF-02 :** Une documentation développeur est fournie pour permettre la maintenance de l'application par les bénévoles.
+- **ENF-03 :** Le code source est fourni de façon Open Source. 
+- **ENF-04 :** L'application possède une interface graphique. (GUI)
+- **ENF-05 :** L'application est responsive, elle fonctionne sur ordinateur portable et sur téléphone.
+- **ENF-06 :** L'application est utilisable par six personnes simultanément.
 ## 4. Contraintes
-
+- Les données sont traitées conformément au RGPD.
+- Le développement de l'application est effectué en python en accord avec le cours de développement informatique 2.
+- L'utilisation de l'application ne demande aucune connaissance technique étant donné qu'aucun personnel technique ne se trouve dans l'équipe de bénévols.
 ## 5. Budget
    
    Le projet est réalisé dans un cadre scolaire , sans coût pour la bibliothèque. Charge estimée : 140 heures de travail (4 etudiants * 35 heures).
@@ -345,12 +352,23 @@ Le système envoie automatiquement des rappels aux membres lorsque la date prév
 ## 6. Livrables et planning
 
 ### 6.1. Livrables
+  - **L-01** L'Application installée et mise en ligne
+  - **L-02** Une guide d'utilisation pour la responsable et les bénévoles
+  - **L-04** Le code source et la documentation technique
 
-  
 ### 6.2. Échéances
+| SEMAINE  | ECHEANCE                                            |
+|:---------|:----------------------------------------------------|
+| S2       | Validation du cahiers de charge                     |
+|          | conception                                          |
+|          | livraison du MVP (F-01 - F-08)                      |
+|          | second increment : F-09 - F-12                      |
+|          | version finale , guide d'utilisation recette finale |
 
 ### 6.3. Retours vers le client
- 
+  - Demo à la responsable et aux benevoles à chaque livraison et point technique
+  - Question ouverte avec le client toutes les semaines
+
 ## 7. Validation du projet
 
 ## 8. Maintenance
