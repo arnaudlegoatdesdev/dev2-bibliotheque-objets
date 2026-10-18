@@ -94,10 +94,10 @@ Pour le système de gestion d'une bibliothèque d'objets, les exigences fonction
 | **F-06** | Gérer les abonnements des membres | Bénévole | Indispensable | 
 | **F-07** | Gérer les réservations d'objets | Bénévole | Indispensable | 
 | **F-08** | Gérer les emprunts et les retours | Bénévole | Indispensable | 
-| **F-09** | Recevoir les notifications relatives aux abonnements par e-mail | Bénévole, Système | Souhaitable | 
-| **F-10** | Recevoir les confirmations de réservation par e-mail | Bénévole, Système | Souhaitable | 
-| **F-11** | Recevoir les reçus d'emprunt par e-mail | Bénévole, Système | Souhaitable | 
-| **F-12** | Recevoir des rappels par e-mail de retour des objets empruntés | Bénévole, Système | Souhaitable | 
+| **F-09** | Envoyer les notifications relatives aux abonnements par e-mail | Bénévole, Système | Souhaitable | 
+| **F-10** | Envoyer les confirmations de réservation par e-mail | Bénévole, Système | Souhaitable | 
+| **F-11** | Envoyer les reçus d'emprunt par e-mail | Bénévole, Système | Souhaitable | 
+| **F-12** | Envoyer des rappels par e-mail de retour des objets empruntés | Bénévole, Système | Souhaitable | 
 
 #### Vue d'ensemble du MVP
 
