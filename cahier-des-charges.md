@@ -530,7 +530,7 @@ Le projet est réalisé dans un cadre scolaire, sans coût pour la bibliothèque
 - Demo à la responsable et aux benevoles à chaque livraison et point technique
 - Question ouverte avec le client toutes les semaines
 
-## 7. Validation du projet
+## 7. Validation du projet 
 
 - **Qui :** Les 06 Bénévoles et la responsable de la bibliothèque accompagnés d'un ou plusieurs membres du groupe  
 - **Quand :** En S2 pour la validation du cahier des charges, Sxx pour la livraison du MVP et Sxx pour la validation de la version finale   
