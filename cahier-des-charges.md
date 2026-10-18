@@ -67,6 +67,12 @@
 
 ### 2.1. Vue d'ensemble du produit et de son environnement
 
+- L'application servira d'outil de gestion aux bénévoles pendants les permanences. Elle remplacera Airtable pour le catalogue et le tableur utilisé pour les emprunts, les retours et les réservations.
+
+- Elle sera principalement utilisée sur l'ordinateur portable du local, qui dispose d'une connexion internet fonctionnant généralement bien.
+
+- Le catalogue existant devra être repris au démarrage de l'application, avec les objets, leurs catégories, leurs photos et leur disponibilité. Le catalogue papier affiché au local sera conservé.
+
 ### 2.2. Profils utilisateurs
 
 ### 2.3. Périmètre
@@ -377,6 +383,7 @@ Le système envoie automatiquement des rappels aux membres lorsque la date prév
   **- Sur quelle base :** la verification des critères d'exigences fonctionnelles section 3.1 , non fonctionnelles 3.2, des contraintes section 4
   **- Suivi des anomalies :** Les anomalies sont rélévés et prise en compte, avec l'identifiant de la section concernées et sa gravité (mineure,majeure,bloquante) 
   **- Reception :** la responsable de la bibliothèque prononce la reception de la version finale en S-- s'il ne reste aucune anomalie bloquante ou majeure. Pour les anomalies mineures elles sont listées comme reservéés.
+
 
 ## 8. Maintenance
 
