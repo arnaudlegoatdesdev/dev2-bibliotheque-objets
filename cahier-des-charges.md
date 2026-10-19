@@ -134,7 +134,7 @@ Pour le système de gestion d'une bibliothèque d'objets, les exigences fonction
 | **F-07** | Gérer les réservations d'objets                                | Bénévole                | Indispensable  | 
 | **F-08** | Gérer les emprunts et les retours                              | Bénévole                | Indispensable  | 
 | **F-09** | Gérer les sauvegardes et la restauration des données           | Administrateur, Système | Indispensable  | 
-| **F-10** | Initialiser le système à partir des données existantes         | Administrateur, Système | Indispensable  |
+| **F-10** | Initialiser le système à partir des données existantes         | Administrateur | Indispensable  |
 | **F-11** | Envoyer les notifications relatives aux abonnements par e-mail | Bénévole, Système       | Souhaitable    | 
 | **F-12** | Envoyer les confirmations de réservation par e-mail            | Bénévole, Système       | Souhaitable    | 
 | **F-13** | Envoyer les reçus d'emprunt par e-mail                         | Bénévole, Système       | Souhaitable    | 
