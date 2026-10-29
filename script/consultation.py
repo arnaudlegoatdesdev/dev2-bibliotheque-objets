@@ -4,5 +4,20 @@ def afficher_dispo(val):
     else:
         return "Indisponible"
 
-def afficher_objets(objets):
-    print(f"ID : {objets.id_obj}, Nom : {objets.nom}, Catégorie : {objets.categorie}, État : {objets.etat}, Disponibilité : {afficher_dispo(objets.disponible)}")
+def afficher_precis_objets(objet):
+    print(f"ID : {objet.id_obj}, Nom : {objet.nom}, Catégorie : {objet.categorie}, État : {objet.etat}, Disponibilité : {afficher_dispo(objet.disponible)}")
+
+def afficher_tout_objets(objets):
+        for objet in objets:
+           print(f"ID : {objet.id_obj}, Nom : {objet.nom}, Catégorie : {objet.categorie}, État : {objet.etat}, Disponibilité : {afficher_dispo(objet.disponible)}")
+
+def rechercher_objet(objet, texte):
+    resultat = []
+
+    for i in objet:
+        if str.lower(texte) in i.nom.lower():
+            resultat.append(i)
+        else:
+            pass
+
+    return resultat
