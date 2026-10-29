@@ -1,5 +1,7 @@
 # Cahier des charges - Bibliothèque d'objets
 
+Ce document présente les besoins du produit final et la proposition de première livraison. Le MVP est limité à des versions simplifiées de F-03 et F-08, décrites en section 3.1. Les autres fonctionnalités sont prévues pour des incréments ultérieurs et ne font pas partie de la démonstration du MVP. Le nouveau périmètre reste à faire valider par la cliente et l’enseignante.
+
 ## Informations sur le document
 
 ### Titre :
@@ -8,10 +10,13 @@
     Groupe 2TL1-6
 ### Validation du projet par le client
 
+Statut : à confirmer avec la cliente. Le périmètre réduit du MVP est une proposition à valider.
+
 ### Historique des versions
-| Version | Date | Modification     |
-|:--------|:-----|:-----------------|
-| v0.1    |      | Version Initiale |
+| Version | Date       | Modification                                                                                          |
+|:--------|:-----------|:------------------------------------------------------------------------------------------------------|
+| v0.1    |            | Version initiale                                                                                      |
+| v0.2    | 29/10/2026 | Restauration de la section 2.5 et harmonisation du MVP limité à F-03 et F-08 ; proposition à valider. |
 ## Convention d'identification
 | Element                    | Format  | Exemple |
 |:---------------------------|:--------|:--------|
@@ -41,9 +46,9 @@
 
 - La Remise est une bibliothèque d'objets située à Etterbeek. Elle permet à ses membres d'emprunter des objets spécifiques du quotidien plutôt que de devoir les acheter. Son catalogue compte environ 350 objets répartis en 12 catégories, telles que bricolage, jardin, cuisine et plus.
 
-- Notre cliente pour ce projet est Nadia Pereira, cofondatrice bénévole de la Remise. La bibliothèque fonctionne avec une équipe de six bénévoles qui travaillent au même niveau et qui s'assureront des permanences. Ils accueillent les membres, ajoutent et modifient les fiches du catalogue et enregistrent les emprunts et les retours.
+- Notre cliente pour ce projet est Nadia Pereira, cofondatrice bénévole de la Remise. La bibliothèque fonctionne avec une équipe de six bénévoles qui travaillent au même niveau et qui assurent les permanences. Ils accueillent les membres, ajoutent et modifient les fiches du catalogue et enregistrent les emprunts et les retours.
 
-- La Remise compte environ 120 membres qui paient un abonnement annuel. Deux formules d'abonnements sont présents, une formule plein tarif et une à tarif réduit. Il faut noter que le contact humain est très important selon notre cliente, les discussions entre membres et les réunions sont à conserver et ne doivent pas être digitalisées.
+- La Remise compte environ 120 membres qui paient un abonnement annuel. Deux formules d’abonnement sont proposées : une formule plein tarif et une à tarif réduit. Il faut noter que le contact humain est très important selon notre cliente, les échanges avec les membres et les conseils d’utilisation des objets doivent être conservés.
 
 ### 1.2. Présentation du projet
 
@@ -57,7 +62,7 @@
 
 - Centraliser le catalogue, les membres, les emprunts et les réservations dans une seule application afin que les bénévoles n'aient plus à utiliser Airtable et le tableur externe de manière fastidieuse.
 
-- Permettre aux bénévoles de connaitre la disponibilité et l'état d'un objet avant de le prêter, afin d'éviter de proposer un objet déjà emprunté en réparation ou réservé.
+- Permettre aux bénévoles de connaitre la disponibilité et l'état d'un objet avant de le prêter, afin d'éviter de proposer un objet déjà emprunté, en réparation ou réservé pour la période concernée.
 
 - Faciliter le contrôle des objets au retour, notamment grâce à la liste des pièces de certains kits, pour repérer les dégâts et les éléments manquants avant l'emprunt suivant.
 
@@ -77,7 +82,7 @@
 
 - **Bénévoles de permanence** : les six bénévoles sont les principaux utilisateurs de l'application. Ils gèrent le catalogue, les membres, les réservations, les emprunts et les retours, ainsi que l'état des objets et les cautions. Ils disposent des mêmes accès. N'ayant pas de connaissances techniques particulières, ils ont besoin d'un outil simple à utiliser pendant les permanences.
 
-- **Membres** : la bibliothèque compte environ 120 membres disposant d'un abonnement annuel. La cliente souhaite qu'ils puissent consulter le catalogue pendant les permanences. Les opérations de gestion restent effectuées par les bénévoles. La consultation à distance et la reservation autonome par les membres est évoquée comme une possibilité, mais la cliente n'est pas encore décidé.
+- **Membres** : la bibliothèque compte environ 120 membres disposant d'un abonnement annuel. La cliente souhaite qu'ils puissent consulter le catalogue pendant les permanences. Les opérations de gestion restent effectuées par les bénévoles. La consultation à distance et la réservation autonome sont évoquées comme des possibilités, mais la cliente n’a pas encore tranché.
 
 ### 2.3. Périmètre
 
@@ -113,6 +118,82 @@
 
 ### 2.5. Données
 
+Le référentiel ci-dessous décrit les données du produit final. Pour le MVP, seules D-01 (membres fictifs préchargés), D-03 (objets fictifs préchargés) et D-08 (emprunts et retours de démonstration) sont utilisées. Le chargement du jeu de démonstration ne constitue pas l’importation des données réelles prévue en F-10.
+
+- **D-01** Membre : identifiant unique, nom, prénom, adresse, téléphone et e-mail. Les abonnements (D-06), réservations (D-07) et emprunts (D-08) sont associés au membre concerné.
+  - Volume : environ 120 membres.
+  - Origine : saisie par les bénévoles. La source des informations existantes à reprendre reste à confirmer.
+  - Conservation : à définir avec la cliente.
+  - Opérations : créer, consulter et modifier une fiche membre par un bénévole (F-01).
+
+- **D-02** Compte utilisateur : identifiant unique, identité du bénévole et statut du compte. L’utilisation d’une adresse e-mail et d’un mot de passe, ainsi que la présence d’un rôle administrateur, prévues dans F-02, restent à valider.
+  - Volume : six bénévoles concernés ; le nombre de comptes reste à préciser.
+  - Origine : comptes créés pour l’utilisation de l’application.
+  - Conservation : à définir avec la cliente.
+  - Opérations prévues : créer, consulter, modifier et désactiver un compte (F-02). La personne responsable de ces opérations reste à confirmer.
+
+- **D-03** Objet : identifiant unique par exemplaire physique, nom, catégorie (D-04), photo, état, disponibilité, catégorie de valeur et liste des pièces attendues pour les kits. Les modifications des fiches sont tracées avec leur auteur, leur date et les informations modifiées.
+  - Compléments prévus dans F-03 : description, marque et modèle, à valider avec la cliente.
+  - Volume : environ 350 objets.
+  - Origine : reprise du catalogue Airtable au démarrage (F-10), puis saisie par les bénévoles.
+  - Conservation : la durée de conservation des fiches après le retrait d’un objet reste à définir.
+  - Opérations : ajouter, consulter, modifier et retirer un objet du catalogue par un bénévole (F-03). Sa disponibilité évolue également avec les réservations, les emprunts et les retours (F-07, F-08).
+
+- **D-04** Type ou catégorie d’objet : identifiant unique, nom et description facultative de la catégorie servant à classer les objets, par exemple bricolage, jardin, cuisine ou camping. Ces catégories sont distinctes des catégories de valeur A à D.
+  - Volume : 12 catégories actuellement.
+  - Origine : reprise des catégories du catalogue Airtable (F-10), puis gestion par les bénévoles.
+  - Conservation : à définir avec la cliente.
+  - Opérations : créer, consulter et modifier les catégories, et y associer des objets, par un bénévole (F-04).
+
+- **D-05** Formule d’abonnement : identifiant unique, nom de la formule, durée, prix et nombre maximal d’objets empruntables simultanément, conformément à RM-01.
+  - Volume : deux formules actuellement.
+  - Origine : formules existantes de La Remise.
+  - Conservation : à définir avec la cliente.
+  - Opérations : consulter les formules (F-05). La possibilité d’en créer de nouvelles, de les modifier ou de les désactiver reste à valider.
+
+- **D-06** Abonnement d’un membre : membre concerné (D-01), formule choisie (D-05), dates de début et de fin de validité et statut de l’abonnement.
+  - Volume : dépend des abonnements souscrits par les quelque 120 membres.
+  - Origine : enregistrement par les bénévoles ; la reprise des abonnements existants reste à préciser.
+  - Conservation : à définir avec la cliente.
+  - Opérations : enregistrer, consulter et mettre à jour un abonnement par un bénévole (F-06). Les modalités de suspension restent à préciser.
+
+- **D-07** Réservation : membre concerné (D-01), exemplaire réservé (D-03), date d’enregistrement, permanence prévue pour le retrait et statut de la réservation. La permanence concernée doit être identifiable par sa date et ses horaires.
+  - Volume : nombre de réservations non précisé par la cliente.
+  - Origine : actuellement dans le tableur séparé ; les nouvelles réservations seront enregistrées par les bénévoles. Les modalités de reprise des réservations existantes restent à préciser.
+  - Conservation : à définir avec la cliente.
+  - Opérations : enregistrer, consulter, modifier et annuler une réservation par un bénévole (F-07). Une réservation non retirée expire à la fin de la permanence concernée (RM-04).
+
+- **D-08** Emprunt et retour : membre concerné (D-01), exemplaire emprunté (D-03), date de sortie, date de retour prévue, date de retour réelle, prolongation éventuelle, état au retour et incidents constatés. Pour les objets concernés : caution perçue, montant restitué, montant retenu et justification.
+  - Volume : nombre d’emprunts non précisé par la cliente.
+  - Origine : reprise des emprunts du tableur existant (F-10), puis enregistrement par les bénévoles.
+  - Conservation : historique des emprunts conservé au moins une année complète. La conservation des incidents tant que l’objet reste dans la collection a été acceptée dans son principe, mais ses modalités restent à préciser.
+  - Opérations : enregistrer un emprunt, prolonger un emprunt, enregistrer un retour et consulter l’historique par un bénévole (F-08).
+
+- **D-09** Notification : sous réserve de validation : membre destinataire (D-01), abonnement, réservation ou emprunt concerné (D-06, D-07 ou D-08), type de notification, contenu du message, date et résultat de l’envoi.
+  - Volume et conservation : à préciser si les notifications sont retenues.
+  - Origine et opérations : notifications produites et envoyées par le système pour les fonctionnalités F-11, F-12 et F-14. Un rappel de retour peut également être déclenché par un bénévole dans F-14.
+
+- **D-10** Reçu d’emprunt : modalités à valider : emprunt concerné (D-08), identité du membre, objet emprunté, date d’emprunt, date de retour prévue, pièces incluses et montant de la caution. La date et le résultat de l’envoi sont également enregistrés si l’envoi par e-mail est retenu.
+  - Volume : dépend du nombre d’emprunts donnant lieu à un reçu.
+  - Origine et opérations : reçu produit à partir des informations de l’emprunt (F-13). Son envoi par e-mail reste à valider.
+  - Conservation : à définir avec la cliente.
+
+- **D-11** Sauvegarde : informations nécessaires à la reprise du système, date de création et statut de la sauvegarde. Les opérations de sauvegarde et de restauration sont tracées avec leur date, leur résultat et l’utilisateur à l’origine de l’opération, ou le système pour une opération automatique.
+  - Volume : dépend de la fréquence des sauvegardes, qui reste à définir.
+  - Origine : sauvegardes produites par le système, automatiquement ou à la demande d’un utilisateur autorisé (F-09).
+  - Conservation : à définir.
+  - Opérations prévues : créer une sauvegarde, consulter les sauvegardes disponibles et restaurer les données (F-09). La personne autorisée à réaliser ces opérations reste à confirmer.
+
+- **D-12** Rapport d’importation : nombre d’enregistrements importés, ignorés ou rejetés, ainsi que les erreurs détectées lors de la reprise des données existantes.
+  - Volume : dépend du nombre d’importations réalisées.
+  - Origine : rapport généré par le système lors d’une importation (F-10).
+  - Conservation : à définir.
+  - Opérations prévues : produire le rapport et permettre sa consultation par la personne chargée de l’importation (F-10). Cette personne reste à confirmer.
+
+Les champs obligatoires, les formats attendus des coordonnées restent à préciser avec la cliente.
+
+Les coordonnées des membres, les comptes et les historiques associés à une personne sont des données personnelles. Les droits d’accès précis restent à valider. Les sauvegardes contenant ces informations doivent bénéficier des mêmes restrictions d’accès.
+
 ## 3. Exigences
 
 ### 3.1. Exigences fonctionnelles
@@ -123,42 +204,72 @@ Pour le système de gestion d'une bibliothèque d'objets, les exigences fonction
 
 #### Vue d'ensemble des fonctionnalités
 
-| ID       | Fonctionnalité                                                 | Acteur(s)               | Priorité       | 
-|----------|----------------------------------------------------------------|-------------------------|----------------| 
-| **F-01** | Gérer les membres                                              | Bénévole                | Indispensable  | 
-| **F-02** | Gérer les comptes utilisateurs                                 | Administrateur          | Indispensable  | 
-| **F-03** | Gérer le catalogue des objets                                  | Bénévole, Système       | Indispensable  | 
-| **F-04** | Gérer les types d'objets                                       | Bénévole                | Indispensable  | 
-| **F-05** | Gérer les formules d'abonnement                                | Bénévole                | Indispensable  | 
-| **F-06** | Gérer les abonnements des membres                              | Bénévole                | Indispensable  | 
-| **F-07** | Gérer les réservations d'objets                                | Bénévole                | Indispensable  | 
-| **F-08** | Gérer les emprunts et les retours                              | Bénévole                | Indispensable  | 
-| **F-09** | Gérer les sauvegardes et la restauration des données           | Administrateur, Système | Indispensable  | 
-| **F-10** | Initialiser le système à partir des données existantes         | Administrateur | Indispensable  |
-| **F-11** | Envoyer les notifications relatives aux abonnements par e-mail | Bénévole, Système       | Souhaitable    | 
-| **F-12** | Envoyer les confirmations de réservation par e-mail            | Bénévole, Système       | Souhaitable    | 
-| **F-13** | Envoyer les reçus d'emprunt par e-mail                         | Bénévole, Système       | Souhaitable    | 
-| **F-14** | Envoyer des rappels par e-mail de retour des objets empruntés  | Bénévole, Système       | Souhaitable    | 
+Les priorités ci-dessous concernent le produit final. La colonne « Livraison prévue » distingue les fonctionnalités retenues pour la première démonstration.
+
+| ID       | Fonctionnalité                                                 | Acteur(s)               | Priorité proposée | Livraison prévue         |
+|----------|----------------------------------------------------------------|-------------------------|-------------------|--------------------------|
+| **F-01** | Gérer les membres                                              | Bénévole                | Indispensable     | Après le MVP             |
+| **F-02** | Gérer les comptes utilisateurs                                 | Administrateur          | Indispensable     | Après le MVP             |
+| **F-03** | Gérer le catalogue des objets                                  | Bénévole, Système       | Indispensable     | MVP : version limitée    |
+| **F-04** | Gérer les types d'objets                                       | Bénévole                | Indispensable     | Après le MVP             |
+| **F-05** | Gérer les formules d'abonnement                                | Bénévole                | Indispensable     | Après le MVP             |
+| **F-06** | Gérer les abonnements des membres                              | Bénévole                | Indispensable     | Après le MVP             |
+| **F-07** | Gérer les réservations d'objets                                | Bénévole                | Indispensable     | Après le MVP             |
+| **F-08** | Gérer les emprunts et les retours                              | Bénévole                | Indispensable     | MVP : version limitée    |
+| **F-09** | Gérer les sauvegardes et la restauration des données           | Administrateur, Système | Indispensable     | Après le MVP             |
+| **F-10** | Initialiser le système à partir des données existantes         | Administrateur          | Indispensable     | Après le MVP             |
+| **F-11** | Envoyer les notifications relatives aux abonnements par e-mail | Bénévole, Système       | Souhaitable       | Après le MVP ; à valider |
+| **F-12** | Envoyer les confirmations de réservation par e-mail            | Bénévole, Système       | Souhaitable       | Après le MVP ; à valider |
+| **F-13** | Envoyer les reçus d'emprunt par e-mail                         | Bénévole, Système       | Souhaitable       | Après le MVP ; à valider |
+| **F-14** | Envoyer des rappels par e-mail de retour des objets empruntés  | Bénévole, Système       | Souhaitable       | Après le MVP ; à valider |
 
 #### Vue d'ensemble du MVP
 
-Le MVP (*Minimum Viable Product*) sera centré sur les fonctionnalités indispensables au fonctionnement de la bibliothèque. Il permettra au Bénévole et/ou à l’Administrateur de gérer :
+Le MVP sera centré sur le suivi de la disponibilité et de l’état des objets pendant une permanence. Il permettra de démontrer un cycle simple : consulter un objet, enregistrer son emprunt puis enregistrer son retour.
 
-* Les membres
-* Les comptes utilisateurs
-* Le catalogue des objets et leurs types
-* Les formules d'abonnement et les abonnements des membres
-* Les réservations, les emprunts et les retours d’objets
+Il comprendra une version limitée de deux fonctionnalités :
 
-Il permettra également d'enregistrer les réservations, les emprunts et les retours d'objets afin d'assurer le suivi de leur disponibilité et de leur état physique.
+- F-03 : consulter le catalogue, rechercher un objet par son nom et afficher son état et sa disponibilité.
+- F-08 : enregistrer l’emprunt d’un objet par un membre existant, calculer la date de retour prévue à une semaine et enregistrer son retour avec son état.
 
-Les fonctionnalités de notification automatique et d'envoi de reçus par e-mail pourront être intégrées dans une version ultérieure, selon le périmètre retenu et la validation de Madame Pereira.
+Un objet déjà emprunté, endommagé ou incomplet ne pourra pas être prêté. Après un retour, sa disponibilité sera actualisée selon son état. Les informations enregistrées seront conservées après fermeture de l’application.
 
-Les fonctionnalités **F-01** à **F-10** sont détaillées ci-dessous sous forme d'exigences fonctionnelles. Les fonctionnalités **F-11** à **F-14** seront précisées ultérieurement, notamment en ce qui concerne les délais d'envoi, les événements déclencheurs et les canaux de notification.
+La démonstration utilisera un petit catalogue d’objets sans caution et des membres fictifs préchargés. La gestion des membres et des abonnements, les réservations, les prolongations, les cautions, les comptes utilisateurs, l’importation, les sauvegardes administrables et les notifications seront réalisés dans des incréments ultérieurs.
 
-Le MVP intégrera également les fonctionnalités de sauvegarde et de restauration des données ainsi que l’importation initiale des données existantes de la bibliothèque. Cette importation permettra de récupérer les données des membres et du catalogue actuellement stockées dans Airtable, ainsi que l’historique des emprunts conservé dans un tableur, après vérification de leur cohérence.
+Ce périmètre répond à deux difficultés centrales de La Remise : connaître la disponibilité des objets et éviter de remettre en circulation un objet endommagé ou incomplet. Il constitue une proposition à faire valider par la cliente et l’enseignante.
 
-#### Détail des exigences fonctionnelles (MVP)
+#### Exigences retenues pour le MVP
+
+Les fiches complètes qui suivent décrivent le produit final. Seules les parties suivantes seront développées pour le MVP :
+
+| Fonctionnalité | Exigence du produit final | Partie retenue pour le MVP                                                                                                                                                                         |
+|----------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| F-03           | EF-03.6                   | Distinguer l’état physique de la disponibilité de chaque exemplaire préchargé.                                                                                                                     |
+| F-03           | EF-03.9, partiellement    | Consulter le catalogue et les informations des objets, sans impression.                                                                                                                            |
+| F-03           | EF-03.10, partiellement   | Rechercher un objet par son nom ; tri et autres filtres reportés.                                                                                                                                  |
+| F-08           | EF-08.1 et EF-08.2        | Sélectionner un membre fictif existant et enregistrer l’objet, le membre, la date de sortie et l’échéance à une semaine.                                                                           |
+| F-08           | EF-08.4, partiellement    | Refuser un emprunt si l’objet est déjà emprunté, endommagé ou incomplet.                                                                                                                           |
+| F-08           | EF-08.6 et EF-08.7        | Enregistrer la date de retour réelle et l’état de l’objet : bon, usure normale, endommagé ou incomplet.                                                                                            |
+| F-08           | EF-08.8, partiellement    | Après le retour, rendre l’objet disponible s’il est en bon état ou présente une usure normale ; le laisser indisponible s’il est endommagé ou incomplet. La gestion des réservations est reportée. |
+| F-08           | EF-08.12                  | Conserver les emprunts enregistrés ; les données restent présentes après fermeture et réouverture de l’application.                                                                                |
+
+La démonstration utilise un seul poste local, des membres fictifs autorisés à emprunter et des exemplaires fictifs de catégorie A, sans caution, sans kit et sans réservation. Les identifiants des exemplaires sont distincts dès le chargement du jeu de démonstration.
+
+Aucune création ou modification des fiches de membres ou d’objets, authentification, gestion des abonnements, contrôle de quota ou de retard, prolongation, réservation, caution, impression, importation Airtable/Excel ou sauvegarde administrable n’est incluse dans le MVP. Ces fonctions et contrôles restent prévus pour la suite ; les règles métier du produit final ne sont pas modifiées.
+
+#### Critères d’acceptation du MVP
+
+| Scénario de démonstration                                                   | Résultat attendu                                                                                                                                               | Exigences concernées                                                             |
+|-----------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| Ouvrir le catalogue préchargé.                                              | Chaque exemplaire apparaît avec son identifiant, son nom, son état physique et sa disponibilité.                                                               | EF-03.6 ; partie de EF-03.9                                                      |
+| Rechercher un nom présent dans le jeu de démonstration, puis un nom absent. | Les objets correspondants sont affichés ; l’absence de résultat est signalée clairement.                                                                       | Partie de EF-03.10                                                               |
+| Prêter un objet disponible à un membre fictif existant.                     | Un emprunt est enregistré avec les bonnes références, la date de sortie et une échéance à une semaine ; l’objet devient emprunté sans changer d’état physique. | EF-08.1 ; EF-08.2 ; partie de EF-08.8 ; EF-03.6 ; partie durée initiale de RM-02 |
+| Tenter de prêter le même objet à un second membre avant son retour.         | Le prêt est refusé et aucun second emprunt n’est créé.                                                                                                         | Partie de EF-08.4                                                                |
+| Enregistrer un retour en état bon ou usure normale.                         | La date réelle et l’état sont enregistrés ; l’objet redevient disponible.                                                                                      | EF-08.6 ; EF-08.7 ; partie de EF-08.8                                            |
+| Enregistrer un retour endommagé ou incomplet, puis tenter un nouveau prêt.  | Le retour est enregistré ; l’objet reste indisponible et le nouveau prêt est refusé.                                                                           | EF-08.6 ; EF-08.7 ; parties de EF-08.4 et EF-08.8 ; RM-08                        |
+| Fermer puis rouvrir l’application après un emprunt ou un retour.            | Les opérations, leurs dates et les états des objets sont conservés.                                                                                            | EF-08.12 et engagement de persistance du MVP                                     |
+
+#### Détail des exigences fonctionnelles du produit final
 
 #### F-01 : Gérer les membres
 
@@ -332,13 +443,13 @@ L’administrateur peut déclencher une sauvegarde des données de la bibliothè
 - **EF-09.9** : Le système signale le résultat d’une sauvegarde ou d’une restauration et indique les éventuelles erreurs rencontrées.
 - **EF-09.10** : Le système conserve une trace des opérations de sauvegarde et de restauration, notamment leur date, leur résultat et l’utilisateur qui les a déclenchées.
 
-> **Données impliquées** : D-01 (données des membres), D-03 (données des objets), D-04 (données des types d’objets), D-05 (données des formules d’abonnement), D-06 (données des abonnements), D-07 (données des réservations), D-08 (données des emprunts), D-09 (données des notifications), D-10 (données des reçus).
+> **Données impliquées** : D-01 (données des membres), D-02 (comptes utilisateurs), D-03 (données des objets), D-04 (données des types d’objets), D-05 (données des formules d’abonnement), D-06 (données des abonnements), D-07 (données des réservations), D-08 (données des emprunts), D-09 (données des notifications), D-10 (données des reçus), D-11 (sauvegardes et traces de restauration).
 
 #### F-10 : Initialiser le système à partir des données existantes
 
 L’administrateur peut initialiser le système en important les données historiques de la bibliothèque actuellement stockées dans Airtable et dans un tableur. Le système permet de contrôler, de valider et d’intégrer ces données afin de démarrer l’utilisation de la nouvelle application sans devoir tout encoder manuellement.
 
-- **EF-10.1** : Le système permet à l’administrateur d’importer les données des membres depuis Airtable.
+- **EF-10.1** : Le système permet à l’administrateur d’importer les données des membres depuis la source existante, dont l’emplacement et le format restent à confirmer avec la cliente.
 - **EF-10.2** : Le système permet à l’administrateur d’importer les données du catalogue des objets depuis Airtable.
 - **EF-10.3** : Le système permet à l’administrateur d’importer les données historiques des emprunts depuis un tableur compatible avec le format retenu pour le projet.
 - **EF-10.4** : Le système permet d’associer les colonnes des fichiers ou des sources importées aux champs correspondants du nouveau système, selon un mapping défini.
@@ -353,7 +464,7 @@ L’administrateur peut initialiser le système en important les données histor
 - **EF-10.13** : Le système empêche qu’une même donnée soit importée plusieurs fois sans contrôle, notamment lors d’une nouvelle tentative d’importation.
 - **EF-10.14** : Avant l’importation initiale, le système permet de sauvegarder les données déjà présentes afin de pouvoir les récupérer en cas de problème.
 
-> **Données impliquées** : D-01 (données des membres), D-03 (données des objets), D-04 (données des types d’objets), D-06 (données des abonnements), D-07 (données des réservations), D-08 (données des emprunts).
+> **Données impliquées** : D-01 (données des membres), D-03 (données des objets), D-04 (données des types d’objets), D-06 (données des abonnements), D-07 (données des réservations), D-08 (données des emprunts), D-12 (rapports d’importation). Les sources et le périmètre de reprise des membres, abonnements et réservations restent à valider.
 
 #### Fonctionnalités secondaires (Post-MVP)
 
@@ -415,6 +526,10 @@ Le système envoie automatiquement des rappels aux membres lorsque la date prév
 
 
 ### 3.2. Exigences non fonctionnelles
+
+Les exigences détaillées de cette section concernent le produit final. Pour le MVP local utilisant des données fictives, les engagements vérifiés sont la lisibilité de l’interface, les messages de succès ou d’erreur compréhensibles, le fonctionnement sur le poste de démonstration, le refus des doubles emprunts et la conservation des données après fermeture et réouverture.
+
+Les exigences liées aux comptes, aux mots de passe, aux rôles, aux cautions, aux sauvegardes administrables et à la disponibilité en exploitation seront appliquées lors des incréments qui introduiront ces fonctions. Les autres objectifs du produit final restent décrits ci-dessous et ne sont pas tous des engagements de la première démonstration.
 
 Les exigences ci-dessous sont des propositions déduites du contexte du projet. Elles ne sont pas encore des contraintes explicitement validées par Mme Pereira.
 
@@ -480,7 +595,7 @@ Le système doit protéger les données et empêcher les utilisateurs non autori
 
 #### ENF-08 — Compatibilité
 
-- **ENF-08.1** : Le système etant un logiciel, il doit fonctionner sur les versions récentes des principaux systèmes d’exploitations retenus pour le projet.
+- **ENF-08.1** : Le système étant un logiciel, il doit fonctionner sur les versions récentes des principaux systèmes d’exploitation retenus pour le projet.
 - **ENF-08.2** : L’interface doit rester utilisable sur les formats d’écran retenus, notamment les ordinateurs utilisés à la bibliothèque.
 
 #### ENF-09 — Maintenabilité et évolutivité
@@ -503,47 +618,62 @@ L'interface utilisateur doit offrir une navigation intuitive, fluide et accessib
 
 ## 4. Contraintes
 - Les données sont traitées conformément au RGPD.
-- Le développement de l'application est effectué en python en accord avec le cours de développement informatique 2.
+- Le développement de l'application est effectué en Python en accord avec le cours de développement informatique 2.
 - L'utilisation de l'application ne demande aucune connaissance technique étant donné qu'aucun personnel technique ne se trouve dans l'équipe de bénévoles.
 ## 5. Budget
 
-Le projet est réalisé dans un cadre scolaire, sans coût pour la bibliothèque. Charge estimée : 140 heures de travail (4 etudiants * 35 heures).
+Le projet est réalisé dans un cadre scolaire, sans coût pour la bibliothèque. Charge estimée : 140 heures de travail (4 étudiants * 35 heures).
 
 ## 6. Livrables et planning
 
 ### 6.1. Livrables
-- **L-01** L'Application installée et mise en ligne
-- **L-02** Une guide d'utilisation pour la responsable et les bénévoles
-- **L-03** La reprise de la liste des membres et des objets depuis le fichier excel
-- **L-04** Le code source et la documentation technique
-- **L-05** Le guide d'installation et de configuration de l'application
+
+Pour le MVP : prototype exécuté localement, code source, jeu de données fictives préchargé, consignes de lancement et diagrammes correspondant aux versions limitées de F-03 et F-08.
+
+Livrables du produit final :
+
+- **L-01** L’application installée ; une mise en ligne reste à valider avec la cliente.
+- **L-02** Un guide d’utilisation pour la responsable et les bénévoles.
+- **L-03** La reprise du catalogue depuis Airtable et des emprunts depuis le tableur existant. La source des fiches membres et les autres reprises restent à confirmer.
+- **L-04** Le code source et la documentation technique.
+- **L-05** Le guide d’installation et de configuration de l’application.
 
 ### 6.2. Échéances
-| SEMAINE  | ECHEANCE                                                              |
-|:---------|:----------------------------------------------------------------------|
-| S2       | Validation du cahier des charges                                      |
-|          | conception                                                            |
-|          | livraison du MVP (F-01 - F-08). reprises de la liste des membres et objets (L-03) |
-|          | second increment : F-09 - F-12                                        |
-|          | version finale , guide d'utilisation application finale               |
+
+| Échéance                                  | Livraison prévue                                                                                                                             |
+|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| Avant la démonstration                    | Proposition du périmètre réduit à la cliente et à l’enseignante ; conception des classes et des parcours du MVP.                             |
+| Lundi 2 novembre 2026, objectif du groupe | Démonstration du MVP : F-03 et F-08 en version limitée, données fictives préchargées, fonctionnement local et critères d’acceptation du MVP. |
+| Incréments suivants, dates à fixer        | Parties restantes de F-03 et F-08 et autres fonctionnalités, selon les priorités validées.                                                   |
+| Version finale, date à confirmer          | Livraison du produit final et de sa documentation, puis recette finale.                                                                      |
+
+Les dates des incréments suivants et de la réception finale restent à convenir. L’objectif de démonstration ne vaut pas validation préalable du nouveau périmètre par la cliente ou l’enseignante.
 
 ### 6.3. Retours vers le client
-- Demo à la responsable et aux benevoles à chaque livraison et point technique
-- Question ouverte avec le client toutes les semaines
+- Démonstration à la responsable et aux bénévoles à chaque livraison et point technique
+- Point sur les questions ouvertes avec la cliente toutes les semaines, selon un rythme à confirmer.
 
-## 7. Validation du projet 
+## 7. Validation du projet
 
-- **Qui :** Les 06 Bénévoles et la responsable de la bibliothèque accompagnés d'un ou plusieurs membres du groupe  
-- **Quand :** En S2 pour la validation du cahier des charges, Sxx pour la livraison du MVP et Sxx pour la validation de la version finale   
-- **Sur quelle base :** la verification des critères d'exigences fonctionnelles section 3.1, non fonctionnelles 3.2, des contraintes section 4  
-- **Suivi des anomalies :** Les anomalies sont rélévées et prise en compte, avec l'identifiant de la section concernées et sa gravité (mineure, majeure, bloquante)   
-- **Reception :** La responsable de la bibliothèque prononce la reception de la version finale en Sxx s'il ne reste aucune anomalie bloquante ou majeure. Pour les anomalies mineures, elles sont listées comme reservées.
+### 7.1. Validation du MVP
+
+La recette du MVP porte uniquement sur les opérations retenues et les critères d’acceptation du MVP décrits en section 3.1. Les scénarios sont vérifiés par le groupe avant la démonstration à l’enseignante. Le périmètre réduit et la participation de la cliente à sa validation restent à confirmer.
+
+Le MVP est présenté comme un prototype local sur données fictives ; cette démonstration ne constitue pas la réception du produit final.
+
+### 7.2. Validation du produit final — proposition à confirmer
+
+- **Qui :** Les 06 Bénévoles et la responsable de la bibliothèque accompagnés d'un ou plusieurs membres du groupe
+- **Quand :** Les dates de validation du cahier des charges et de réception finale restent à convenir. L’objectif de démonstration du MVP figure en 6.2.
+- **Sur quelle base :** la vérification des critères d'exigences fonctionnelles section 3.1, non fonctionnelles 3.2, des contraintes section 4
+- **Suivi des anomalies :** Les anomalies sont relevées et prises en compte, avec l'identifiant de la section concernée et sa gravité (mineure, majeure, bloquante)
+- **Réception :** La responsable de la bibliothèque prononce la réception de la version finale à la date convenue s’il ne reste aucune anomalie bloquante ou majeure. Pour les anomalies mineures, elles sont listées comme réserves.
 
 
 ## 8. Maintenance
 
+Les modalités de maintenance après la livraison restent à convenir avec la cliente.
+
 ## 9. Questions ouvertes
 
 ## 10. Glossaire
-
-
