@@ -2,12 +2,11 @@ from datetime import datetime
 
 
 class Sauvegarde:
-    def __init__(self, id_membre, titre, description,date,type,url,id_benevole):
+    def __init__(self, id_membre, titre, description,date,url,id_benevole):
         self.__id_membre = id_membre
         self.__titre = titre
         self.__description = description
         self.__date = date
-        self.__type = type
         self.__url = url
         self.__id_benevole = id_benevole
         self.__create_at = datetime.today()
@@ -40,14 +39,6 @@ class Sauvegarde:
     @date.setter
     def date(self, date) -> None:
         self.__date = date
-
-    @property
-    def type(self) -> str:
-        return self.__type
-
-    @type.setter
-    def type(self, type) -> None:
-        self.__type = type
 
     @property
     def url(self) -> str:
