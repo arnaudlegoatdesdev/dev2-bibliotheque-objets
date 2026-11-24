@@ -3,7 +3,7 @@ from datetime import date, timedelta
 from Models.membre import Membre
 from Models.objet import Objet
 from Models.emprunt import Emprunt
-from Models.etat import ETAT_BON, ETAT_ENDOMMAGE, ETAT_INCOMPLET
+from Models.etat import *
 
 def charger_donnees():
     aujourdhui = date.today()
