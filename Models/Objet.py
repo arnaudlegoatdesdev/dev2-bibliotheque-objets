@@ -1,63 +1,75 @@
+from datetime import date, datetime
+from Enums.EtatObjet import EtatObjet
+from Enums.StatutObjet import StatutObjet
+
+
 class Objet:
-    def __init__(self,id_objet,nom, etat, statut,description,mat_benevole,id_reservation,id_type_objet):
+    def __init__(self,id_objet,nom,description,mat_benevole,id_type_objet):
         self.__id_objet = id_objet
         self.__nom = nom
-        self.__etat = etat
-        self.__statut = statut
+        self.__etat = EtatObjet.BON_ETAT
+        self.__statut = StatutObjet.DISPONIBLE
         self.__description = description
         self.__mat_benevole = mat_benevole
-        self.__id_reservation = id_reservation
         self.__id_type_objet = id_type_objet
-
+        self.__create_at = datetime.today()
+        self.__update_at = datetime.today()
 
     @property
-    def id_objet(self):
+    def id_objet(self) -> str:
         return self.__id_objet
 
     @property
-    def nom(self):
+    def nom(self) -> str:
         return self.__nom
 
-    @nom.setter(self):
-    def nom(self,nom):
+    @nom.setter
+    def nom(self,nom) -> None:
         self.__nom = nom
 
     @property
-    def etat(self):
+    def etat(self) -> EtatObjet:
         return self.__etat
 
     @etat.setter
-    def etat(self,etat):
+    def etat(self,etat: EtatObjet) -> None:
         self.__etat = etat
 
     @property
-    def statut(self):
+    def statut(self) -> StatutObjet:
         return self.__statut
 
     @statut.setter
-    def statut(self,statut):
+    def statut(self,statut: StatutObjet) -> None:
         self.__statut = statut
 
     @property
-    def description(self):
+    def description(self) -> str:
         return self.__description
 
     @description.setter
-    def description(self,description):
+    def description(self,description) -> None:
         self.__description = description
 
-
     @property
-    def mat_benevole(self):
+    def mat_benevole(self) -> str:
         return self.__mat_benevole
 
     @property
-    def id_reservation(self):
-        return self.__id_reservation
+    def id_type_objet(self) -> str:
+        return self.__id_type_objet
 
     @property
-    def id_type_objet(self):
-        return self.__id_type_objet
+    def create_at(self) -> datetime:
+        return self.__create_at
+
+    @property
+    def update_at(self) -> datetime:
+        return self.__update_at
+
+    @update_at.setter
+    def update_at(self, valeur) -> None:
+        self.__update_at = valeur
 
     def __str__(self):
         pass

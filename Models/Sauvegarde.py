@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 class Sauvegarde:
-    def __init__(self, id_membre, titre, description,date,type,url,id_benevole,create_at, update_at):
+    def __init__(self, id_membre, titre, description,date,type,url,id_benevole):
         self.__id_membre = id_membre
         self.__titre = titre
         self.__description = description
@@ -10,8 +10,8 @@ class Sauvegarde:
         self.__type = type
         self.__url = url
         self.__id_benevole = id_benevole
-        self.__create_at = datetime.strptime(create_at, '%d/%m/%Y')
-        self.__update_at = update_at
+        self.__create_at = datetime.today()
+        self.__update_at = datetime.today()
 
     @property
     def id_membre(self) -> str:
@@ -21,57 +21,57 @@ class Sauvegarde:
     def titre(self) -> str:
         return self.__titre
 
+    @titre.setter
+    def titre(self, titre) -> None:
+        self.__titre = titre
+
     @property
     def description(self) -> str:
         return self.__description
 
+    @description.setter
+    def description(self, description) -> None:
+        self.__description = description
+
     @property
-    def date(self):
+    def date(self) -> datetime:
         return self.__date
 
-    @property
-    def type(self):
-        return self.__type
+    @date.setter
+    def date(self, date) -> None:
+        self.__date = date
 
     @property
-    def url(self):
+    def type(self) -> str:
+        return self.__type
+
+    @type.setter
+    def type(self, type) -> None:
+        self.__type = type
+
+    @property
+    def url(self) -> str:
         return self.__url
+
+    @url.setter
+    def url(self, url) -> None:
+        self.__url = url
 
     @property
     def id_benevole(self):
         return self.__id_benevole
 
     @property
-    def create_at(self):
+    def create_at(self) -> datetime:
         return self.__create_at
 
     @property
-    def update_at(self):
+    def update_at(self) -> datetime:
         return self.__update_at
 
-    @titre.setter
-    def titre(self, titre):
-        self.__titre = titre
-
-    @description.setter
-    def description(self, description):
-        self.__description = description
-
-    @date.setter
-    def date(self, date):
-        self.__date = date
-
-    @type.setter
-    def type(self, type):
-        self.__type = type
-
-    @url.setter
-    def url(self, url):
-        self.__url = url
-
     @update_at.setter
-    def update_at(self) -> None:
-        self.__update_at = datetime.now()
+    def update_at(self, valeur) -> None:
+        self.__update_at = valeur
 
     def __str__(self):
         pass
