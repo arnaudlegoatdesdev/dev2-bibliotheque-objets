@@ -3,12 +3,13 @@ from Enums.StatutUser import StatutUser
 
 
 class User:
-    def __init__(self, id_user, nom,prenom,date_naissance,email,telephone,image):
+    def __init__(self, id_user, nom,prenom,date_naissance,email,password,telephone,image):
         self.__id_user = id_user
         self.__nom = nom
         self.__prenom = prenom
         self.__date_naissance = date_naissance
         self.__email = email
+        self.__password = password
         self.__telephone = telephone
         self.__image = image
         self.__statut = StatutUser.ACTIF
@@ -50,6 +51,14 @@ class User:
     @email.setter
     def email(self, email) -> None:
         self.__email = email
+
+    @property
+    def password(self) -> str:
+        return self.__password
+
+    @password.setter
+    def password(self, password) -> None:
+        self.__password = password
 
     @property
     def telephone(self) -> int:
