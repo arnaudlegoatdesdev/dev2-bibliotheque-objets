@@ -1,9 +1,8 @@
 class Membre:
-    def __init__(self,id_membre, nom, prenom,matricule,tel,adresse,email):
+    def __init__(self,id_membre, nom, prenom,tel,adresse,email):
         self.__id = id_membre
         self.__nom = nom
         self.__prenom = prenom
-        self.__matricule = matricule
         self.__tel = tel
         self.__adresse = adresse
         self.__email = email
@@ -29,14 +28,6 @@ class Membre:
     def prenom(self,prenom):
         self.__prenom = prenom
 
-   """ @property
-    def matricule(self):
-        return self.__matricule
-
-    @matricule.setter
-    def matricule(self,matricule):
-        self.__matricule = matricule
-    """"
 
     @property
     def tel(self):
