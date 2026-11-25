@@ -52,7 +52,7 @@ def afficher_membres(membres):
     print(f"{'ID':<4}{'Nom':<20}{'Fin abonnement':<16}{'Abonnement':<12}Éligible")
     for m in membres:
         valide = "Valide" if m.abonnement_valide() else "Expiré"
-        eligible = "Oui" if m.eligible else "Non"
+        eligible = "Oui" if m.eligible and m.abonnement_valide() else "Non"
         print(f"{m.id:<4}{m.nom:<20}{m.fin_abonnement:%d/%m/%Y}      {valide:<12}{eligible}")
 
 
