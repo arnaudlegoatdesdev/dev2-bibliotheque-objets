@@ -162,8 +162,10 @@ def enregistrer_retour():
     print("État de l'objet au retour (vide = inchangé) :")
     etat = lire_etat("Votre choix : ", obligatoire=False)
     emprunt = gestion_emprunts.enregistrer_retour(id_emprunt, etat)
-    print(f"Retour enregistré : « {emprunt.objet.nom} » est de nouveau disponible.")
-
+    if emprunt.objet.est_pretable():
+        print(f"Retour enregistré : « {emprunt.objet.nom} » est de nouveau disponible.")
+    else:
+        print(f"Retour enregistré : Mais « {emprunt.objet.nom} » n'est pas prêtable.")
 
 def menu(titre_menu, options, sortie="Retour"):
     """Affiche un menu numéroté et exécute l'action choisie, en boucle."""
