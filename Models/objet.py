@@ -45,5 +45,11 @@ class Objet:
     def disponible(self, valeur):
         self._disponible = valeur
 
-    def est_en_bon_etat(self):
+    def est_en_bon_etat(self) -> bool:
         return self._etat == ETAT_BON
+
+    def est_pretable(self) -> bool:
+        if self._disponible and self._etat == ETAT_BON:
+            return True
+        else:
+            return False

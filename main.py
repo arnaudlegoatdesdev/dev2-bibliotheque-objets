@@ -59,7 +59,7 @@ def afficher_membres(membres):
 def afficher_objets(objets):
     print(f"{'ID':<4}{'Nom':<14}{'État':<12}{'Dispo':<8}Description")
     for o in objets:
-        dispo = "Oui" if o.disponible else "Non"
+        dispo = "Oui" if o.est_pretable() else "Non"
         print(f"{o.id:<4}{o.nom:<14}{o.etat:<12}{dispo:<8}{o.description}")
 
 
@@ -118,10 +118,12 @@ def modifier_etat_objet():
 def verifier_disponibilite_objet():
     afficher_objets(catalogue.lister())
     objet = catalogue.verifier_disponibilite(lire_entier("\nID de l'objet : "))
-    if objet.disponible:
+    if objet.est_pretable():
         print(f" « {objet.nom} » est disponible.")
-    else:
+    elif not objet.disponible:
         print(f" « {objet.nom} » est actuellement emprunté.")
+    else:
+        print(f" « {objet.nom} » ne peux pas être emprunté")
 
 
 def retirer_objet():
