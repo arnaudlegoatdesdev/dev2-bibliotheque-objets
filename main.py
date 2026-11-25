@@ -1,6 +1,7 @@
 from Data import charger_donnees
 from Models.etat import ETATS
 from Services import ErreurMetier, GestionMembres, GestionCatalogue, GestionEmprunts
+from datetime import date
 
 _membres, _objets, _emprunts = charger_donnees()
 gestion_membres = GestionMembres(_membres)
@@ -64,10 +65,18 @@ def afficher_objets(objets):
 
 
 def afficher_emprunts(emprunts):
-    print(f"{'ID':<4}{'Membre':<18}{'Objet':<14}{'Emprunté le':<13}Retour")
+    print(f"{'ID':<4}{'Membre':<18}{'Objet':<14}{'Emprunté le':<13}{'Retour prévu':<14}Retour réel")
     for e in emprunts:
-        retour = f"{e.date_retour:%d/%m/%Y}" if e.date_retour else "En cours"
-        print(f"{e.id:<4}{e.membre.nom:<18}{e.objet.nom:<14}{e.date_emprunt:%d/%m/%Y}   {retour}")
+        emprunt = f"{e.date_emprunt:%d/%m/%Y}"
+        retour_prevu = f"{e.date_retour_prevue:%d/%m/%Y}"
+        if e.date_retour:
+            retour = f"{e.date_retour:%d/%m/%Y}"
+        elif date.today() > e.date_retour_prevue:
+            retour = "En retard"
+        else:
+            retour = "En cours"
+
+        print(f"{e.id:<4}{e.membre.nom:<18}{e.objet.nom:<14}{emprunt:<13}{retour_prevu:<14}{retour}")
 
 
 def afficher_liste_membres():

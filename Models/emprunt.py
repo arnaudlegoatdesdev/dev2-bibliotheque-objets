@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, timedelta
 
 
 class Emprunt:
@@ -44,3 +44,7 @@ class Emprunt:
     @property
     def en_cours(self):
         return self._date_retour is None
+
+    @property
+    def date_retour_prevue(self):
+        return self._date_emprunt + timedelta(days=7)
