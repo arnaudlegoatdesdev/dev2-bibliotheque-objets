@@ -6,3 +6,4 @@ class EtatObjet(StrEnum):
   ENDOMMAGE = "Endommage"
   INCOMPLETE = "Incomplet"
   HORS_SERVICE = "Hors_service"
+  EN_REPARATION = "En_réparation"
